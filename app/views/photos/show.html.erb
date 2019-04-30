@@ -1,0 +1,15 @@
+<h1>photos</h1>
+
+<h2><%= @photo.title %></h2>
+
+<h4>Price</h4>
+<p><%= @photo.price %></p>
+
+<h4>Photographer</h4>
+<p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+
+<h5>Description</h5>
+<p><%= @photo.description %></p>
+
+
+<%= link_to "Back", :back %>

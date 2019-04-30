@@ -1,0 +1,17 @@
+<h3>all your photos</h3>
+<ul>
+    <% @seller.photos.each do |photo| %>
+        <li>
+            <h4><%= photo.title %></h4>
+            <h6>Price: $<%= photo.price %> </h6>
+            <p><%= photo.description %></p>
+            <%= link_to 'Show', photo_path(photo) %>
+            <%= link_to 'Edit', edit_photo_path(photo) %>
+            <%= link_to "delete", delete_photo_path(photo),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'} %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to 'Add new', seller_new_photo_path %>
