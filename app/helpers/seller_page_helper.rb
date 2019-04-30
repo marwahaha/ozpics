@@ -1,0 +1,2 @@
+module SellerPageHelper
+end
