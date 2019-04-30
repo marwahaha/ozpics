@@ -12,16 +12,6 @@
             <%= photo.price %> 
             <%= photo.description %>
             <%= link_to "show", photo_path(photo.id) %>
-<!--          
-            <% if user_signed_in? %>
-                <% if current_user.id == photo.user_id %>
-                <%= link_to "edit", edit_photo_path(photo.id) %>
-                <%= link_to "delete", delete_photo_path(photo.id),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-                <% end %>
-            <% end %>
-             --> 
         </li>
     <% end %>
 </ul>
