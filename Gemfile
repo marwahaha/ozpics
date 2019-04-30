@@ -6,7 +6,7 @@ ruby '2.6.1'
 gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-
+gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
