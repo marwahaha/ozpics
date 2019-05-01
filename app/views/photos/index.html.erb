@@ -2,7 +2,7 @@
 <ul>
     <% @photos.each do |photo| %>
         <li>
-            <%= image_tag(photo.uploaded_image.service_url, style:'width: 300px') %>
+            <%= image_tag(photo.uploaded_image, style:'width: 300px') %>
             <%= photo.title %>
             <%= photo.price %> 
             <%= photo.description %>
