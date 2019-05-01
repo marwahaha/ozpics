@@ -1,10 +1,4 @@
 <h1>photos</h1>
-
-
-<% if seller_signed_in? %>
-    <%= link_to 'Seller Dashboard', seller_page_path(current_seller.id) %>
-<% end %>
-
 <ul>
     <% @photos.each do |photo| %>
         <li>
