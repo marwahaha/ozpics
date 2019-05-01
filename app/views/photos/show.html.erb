@@ -11,5 +11,10 @@
 <h5>Description</h5>
 <p><%= @photo.description %></p>
 
+<%= link_to 'Edit', edit_photo_path(@photo) %>
+<%= link_to "delete", delete_photo_path(@photo),
+        method: :delete,
+        data: {confirm: 'Are you sure?'} %>
 
-<%= link_to "Back", :back %>
+
+<%= link_to "Back", seller_page_path(current_seller) %>
