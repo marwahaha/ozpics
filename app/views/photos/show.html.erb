@@ -4,17 +4,15 @@
 
 <h2><%= @photo.title %></h2>
 
-<h4>Price</h4>
-<p><%= @photo.price %></p>
-
 <h4>Photographer</h4>
 <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
 
 <h5>Description</h5>
 <p><%= @photo.description %></p>
 
-<% unless seller_signed_in? %>
-  <button type="button" class="btn btn-primary">Buy</button>
+<h5>Price</h5>
+<% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
+   <%= render "layouts/shared/stripe_form" %>
 <% end %>
 
 <% if seller_signed_in? %>
@@ -23,16 +21,11 @@
     <%= link_to "delete", delete_photo_path(@photo),
         method: :delete,
         data: {confirm: 'Are you sure?'} %>
+    <div>
+      <%= link_to "Go to Dashboard", seller_page_path(@photo.seller_id) %>
+    </div>
   <% end %>
 <% end %>
-
-<div>
-  <% if seller_signed_in? %>
-    <% if @photo.seller_id == current_seller.id %>
-      <%= link_to "Go to Dashboard", seller_page_path(@photo.seller_id) %>
-    <% end %>
-  <% end %> 
-</div>
 
 <div>
   <%= link_to "Back to Home", root_path %>
