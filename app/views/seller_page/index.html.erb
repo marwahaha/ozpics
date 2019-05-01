@@ -1,3 +1,5 @@
+<%= link_to 'Add new', seller_new_photo_path %>
+
 <h3>all your photos</h3>
 <ul>
     <% @seller.photos.each do |photo| %>
@@ -15,4 +17,3 @@
     <% end %>
 </ul>
 
-<%= link_to 'Add new', seller_new_photo_path %>

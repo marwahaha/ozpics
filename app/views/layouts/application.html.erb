@@ -21,8 +21,15 @@
         <div class="nav navbar-nav navbar-right">
 
             <% if seller_signed_in? %>
-              <li class="nav-item"><%= link_to 'Dashboard', seller_page_path(current_seller) %></li>
-              <li class="nav-item"><%= link_to 'Log out', destroy_seller_session_path, method: :delete %></li>
+              <li class="nav-item dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="caret"><%= link_to 'Dashboard', seller_page_path(current_seller) %></span>                  
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to 'Edit Account',  edit_seller_registration_path %>
+                  <%= link_to 'Log out', destroy_seller_session_path, method: :delete %>
+                </div>
+              </li>
 
             <% elsif buyer_signed_in? %>
               <%= link_to 'Shopping Cart', edit_buyer_registration_path %>
