@@ -1,5 +1,7 @@
 <h1>photos</h1>
 
+<%= image_tag @photo.uploaded_image.service_url, style:'width: 300px' %>
+
 <h2><%= @photo.title %></h2>
 
 <h4>Price</h4>
@@ -17,4 +19,4 @@
         data: {confirm: 'Are you sure?'} %>
 
 
-<%= link_to "Back", seller_page_path(current_seller) %>
+<%= link_to "Back", seller_page_path(current_seller.id) %>

@@ -1,6 +1,6 @@
 <h1>Edit photo</h1>
 
-<form action="<%= photo_path(params[:id]) %>" method="POST" >
+<form action="<%= photo_path(params[:id]) %>" method="POST" enctype="multipart/form-data" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
     <input type="hidden" name="_method" value="patch" />
@@ -13,6 +13,9 @@
 
     <label for="price">Price</label>
     <input type="text" name="price" id="price"  value="<%= @photo.price %>"/>
+
+    <label>Image</label>
+    <input type="file" name="uploaded_image" accept="image/png, image/jpeg">
 
     <input type="submit" value="Update" />
 </form>
