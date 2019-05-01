@@ -5,9 +5,6 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>$<%= @photo.price %></span>
-    </label>
   </article>
   <input type="hidden" name="amount" value="<%= @photo.price %>">
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

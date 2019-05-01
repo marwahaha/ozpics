@@ -1,12 +1,11 @@
 <h1>photos</h1>
-<ul>
+
+<div class="row">
     <% @photos.each do |photo| %>
-        <li>
-            <%= image_tag photo.uploaded_image, style:'width: 300px' if photo.uploaded_image.attached? %>
-            <%= photo.title %>
-            <%= photo.price %> 
-            <%= photo.description %>
-            <%= link_to "show", photo_path(photo.id) %>
-        </li>
+      <div class="col-md-3">
+        <a href="/photos/<%= photo.id %>">
+          <%= image_tag(photo.uploaded_image, style:'width: 300px') if photo.uploaded_image.attached? %>
+        </a>    
+      </div>      
     <% end %>
-</ul>
+</div>
