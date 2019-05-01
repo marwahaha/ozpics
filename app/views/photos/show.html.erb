@@ -13,10 +13,29 @@
 <h5>Description</h5>
 <p><%= @photo.description %></p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %>
-<%= link_to "delete", delete_photo_path(@photo),
+<% unless seller_signed_in? %>
+  <button type="button" class="btn btn-primary">Buy</button>
+<% end %>
+
+<% if seller_signed_in? %>
+  <% if @photo.seller_id == current_seller.id %>
+    <%= link_to 'Edit', edit_photo_path(@photo) %>
+    <%= link_to "delete", delete_photo_path(@photo),
         method: :delete,
         data: {confirm: 'Are you sure?'} %>
+  <% end %>
+<% end %>
 
+<div>
+  <% if seller_signed_in? %>
+    <% if @photo.seller_id == current_seller.id %>
+      <%= link_to "Go to Dashboard", seller_page_path(@photo.seller_id) %>
+    <% end %>
+  <% end %> 
+</div>
 
-<%= link_to "Back", :back %>
+<div>
+  <%= link_to "Back to Home", root_path %>
+</div>
+        
+      
