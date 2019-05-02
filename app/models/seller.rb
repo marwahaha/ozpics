@@ -4,4 +4,5 @@ class Seller < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :photos
+  has_one_attached :avatar_image
 end
