@@ -2,10 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.photo-grid {
+.c-photo-hero {
+  background-color:lightgrey;
+  height: 50vh;
+  padding: 50px;
+}
+
+.c-categories {
+  background-color: white;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c-photo-grid {
   background-color: pink;
-  // height: calc(100vh - 70px);
-  // display: grid;
-  // grid-template-rows: 1fr;
-  // grid-template-columns: 300px 1fr;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-photo-item {
+  background-color: lightseagreen;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-item {
+  width: 300px;
 }

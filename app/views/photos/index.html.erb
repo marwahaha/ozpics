@@ -1,15 +1,24 @@
-<h1>Stock photography with all Australian content</h1>
+<div class=c-photo-hero>
+  <h1>Stock photography with all Australian content</h1>
+</div>
 
-<div class=photo-grid>
-    <div class="row">
-        <% @photos.each do |photo| %>
-          <div class="col-md-3">
-            <a href="/photos/<%= photo.id %>">
-              <%= image_tag(photo.uploaded_image, style:'width: 300px') if photo.uploaded_image.attached? %>
-            </a>    
-          </div>      
-        <% end %>
-    </div>
+<div class=c-categories>
+<div class="button-secondary"><a href="#">See all</a></div>
+<div class="button-secondary"><a href="#">Nature</a></div>
+<div class="button-secondary"><a href="#">Family</a></div>
+<div class="button-secondary"><a href="#">Lifestyle</a></div>
+<div class="button-secondary"><a href="#">Youth</a></div>
+<div class="button-secondary"><a href="#">Industry</a></div>
+</div>
+
+<div class="c-photo-grid">
+    <% @photos.each do |photo| %>
+      <div class="c-photo-item">
+        <a href="/photos/<%= photo.id %>">
+          <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %>
+        </a>    
+      </div>      
+    <% end %>
 </div>
 
 <div class=footer>
