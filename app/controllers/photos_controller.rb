@@ -1,6 +1,11 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    if params[:category].blank?
+      @photos = Photo.all
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @photos = Photo.where(:category_id => @category_id)
+    end
   end
 
   def create
@@ -15,6 +20,7 @@ class PhotosController < ApplicationController
 
   def new
       @photo = Photo.new
+      @categories = Category.all
   end
 
   def show
@@ -23,6 +29,7 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -44,6 +51,6 @@ class PhotosController < ApplicationController
 
   private
     def photo_params
-      params.permit(:title, :description, :price, :uploaded_image)
+      params.permit(:title, :description, :price, :uploaded_image, :category_id)
     end
 end

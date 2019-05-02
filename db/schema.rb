@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_011358) do
+ActiveRecord::Schema.define(version: 2019_05_02_021549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(version: 2019_05_01_011358) do
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -55,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_011358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "seller_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_photos_on_category_id"
     t.index ["seller_id"], name: "index_photos_on_seller_id"
   end
 
@@ -74,5 +82,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_011358) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "photos", "categories"
   add_foreign_key "photos", "sellers"
 end
