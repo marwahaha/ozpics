@@ -1,11 +1,16 @@
-<h1>photos</h1>
+<h1>Stock photography with all Australian content</h1>
 
-<div class="row">
-    <% @photos.each do |photo| %>
-      <div class="col-md-3">
-        <a href="/photos/<%= photo.id %>">
-          <%= image_tag(photo.uploaded_image, style:'width: 300px') if photo.uploaded_image.attached? %>
-        </a>    
-      </div>      
-    <% end %>
+<div class=photo-grid>
+    <div class="row">
+        <% @photos.each do |photo| %>
+          <div class="col-md-3">
+            <a href="/photos/<%= photo.id %>">
+              <%= image_tag(photo.uploaded_image, style:'width: 300px') if photo.uploaded_image.attached? %>
+            </a>    
+          </div>      
+        <% end %>
+    </div>
+</div>
+
+<div class=footer>
 </div>
