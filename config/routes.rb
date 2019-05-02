@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "/photos/:id/edit", to: "photos#edit", as: "edit_photo"
   delete "/photos/:id", to: "photos#destroy", as: "delete_photo"
 
+  get "/join", to: "join#index", as: "join"
+
   resources :charges
 
 end

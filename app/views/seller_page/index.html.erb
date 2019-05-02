@@ -1,3 +1,29 @@
+<div class="c-seller-portfolio">
+    <div>
+        <div class="c-name"><%= @seller.firstname %> <%= @seller.lastname %></div>
+        <div class="c-avatar">
+            <% if @seller.avatar_image.attached? %>
+                <%= image_tag @seller.avatar_image, style: 'width: 150px; height: 150px; border-radius: 50%' %>
+            <% else %>
+                <img src="http://cdn.onlinewebfonts.com/svg/img_258083.png" alt="default-avatar-image" style="width: 150px; height: 150px; border-radius: 50%;">
+            <% end %>
+        </div>
+        <div class="c-photo-count">
+            <%= @seller.photos.count %> Photos
+        </div>
+    </div>
+    <div class="c-seller-website">
+        <%= @seller.website %>
+    </div>
+    <div class="c-add-photo">
+        <%= link_to 'Add new', seller_new_photo_path %>
+    </div>    
+</div>
+
+
+
+
+
 <h3>all your photos</h3>
 <ul>
     <% @seller.photos.each do |photo| %>
@@ -15,4 +41,3 @@
     <% end %>
 </ul>
 
-<%= link_to 'Add new', seller_new_photo_path %>

@@ -11,8 +11,16 @@
 <p><%= @photo.description %></p>
 
 <h5>Price</h5>
+<p>$<%= @photo.price %></p>
+
 <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
-   <%= render "layouts/shared/stripe_form" %>
+  <% if buyer_signed_in? %>
+    <%= render "layouts/shared/stripe_form" %>
+  <% else %>
+    <div>To purchase
+      <%= link_to 'Log In', new_buyer_session_path%> | <%= link_to 'Sign Up', new_buyer_registration_path %> 
+    </div>
+  <% end %>
 <% end %>
 
 <% if seller_signed_in? %>
