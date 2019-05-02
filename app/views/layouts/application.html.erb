@@ -27,6 +27,7 @@
         <div class="nav navbar-nav navbar-right">
 
             <% if seller_signed_in? %>
+              <li>Hi <%= current_seller.firstname %></li>
               <li class="nav-item dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <span class="caret"><%= link_to 'Dashboard', seller_page_path(current_seller) %></span>                  

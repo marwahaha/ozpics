@@ -8,6 +8,14 @@
     <label for="title">Title</label>
     <input type="text" name="title" id="title" value="<%= @photo.title %>"/>
 
+    <label for="book_category_id">Category</label>
+    <select class="form-control" id="book_category_id" name="category_id">  
+        <% @categories.each do |category| %>
+            <option value="<%= category.id %>" <%= "selected" if @photo.category_id == category.id %>><%= category.name %></option>
+
+        <% end %>      
+    </select>
+
     <label>Description</label>
     <input type="textarea" name="description" id="description" value="<%= @photo.description %>" />
 

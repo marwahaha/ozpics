@@ -20,6 +20,14 @@
     <label for="title">Title</label>
     <input type="text" name="title" id="title"/>
 
+    <label for="category_id">Category</label>
+    <select class="form-control" id="category_id" name="category_id">
+        <option value="">Select a category</option>     
+        <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+        <% end %>      
+    </select>
+
     <label>Description</label>
     <input type="textarea" name="description" id="description" />
 
