@@ -17,7 +17,7 @@
 
   <body>
 
-    <nav class="navbar navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: transparent !important;"%>" >
+  <nav class="navbar navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: transparent !important;"%>" >
       <div class="container">
           
         <div class="navbar-header">
@@ -42,7 +42,9 @@
               <%= link_to 'Shopping Cart', edit_buyer_registration_path %>
               <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
             <% else %>
+            <div class="button">
               <%= link_to 'Join', join_path %>
+            </div>
             <% end %>
         </div>
       </div>

@@ -1,3 +1,5 @@
+<div class="main"
+
 <div class="c-seller-portfolio">
     <div>
         <div class="c-name"><%= @seller.firstname %> <%= @seller.lastname %></div>
@@ -16,7 +18,9 @@
         <%= @seller.website %>
     </div>
     <div class="c-add-photo">
+    <div class="button">
         <%= link_to 'Add new', seller_new_photo_path %>
+    </div>
     </div>    
 </div>
 
@@ -32,3 +36,4 @@
 
 
 
+</div>
