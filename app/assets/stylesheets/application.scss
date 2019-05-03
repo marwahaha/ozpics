@@ -19,9 +19,10 @@
 @import 'variables.scss';
 @import 'footer.scss';
 @import 'photos.scss';
+@import 'navbar.scss';
+@import 'buttons.scss';
 
 /* Any style that is common to all pages */
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -59,37 +60,8 @@ a:hover {
   text-decoration: none;
 }
 
-.button-secondary:hover {
-  width: 150px;
-  height: 40px;
-  background-color: $primary-color;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.button-black:hover {
-  width: 150px;
-  height: 40px;
-  background-color: $primary-color;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 body {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   padding: 0px 50px;
-}
-
-.navbar {
-  background-color: transparent !important;
-  margin-bottom:0px;
-}
-
-.container {
-  margin-bottom: 0px;
 }
