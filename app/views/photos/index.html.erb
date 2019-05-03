@@ -1,26 +1,39 @@
-<div class=c-photo-hero>
-  <h1>Stock photography with</h1>
-  <h1>all Australian content.</h1>
+<div class="main" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>">
 
-</div>
+  <div class=c-photo-hero>
+    <h1>Stock photography with</h1>
+    <h1>all Australian content.</h1>
+  </div>
 
-<div class="c-category">
-  <div class="c-show-all-photos"><%= link_to 'All', photos_path %></div>
-  <% Category.all.each do |category| %>
-    <div class="<%= 'active' if params[:category] == category.name %>">
-      <%= link_to category.name, photos_path(category: category.name), class:"c-link" %>
-    </div>
-  <% end %>
-</div>
+  <div class="c-category">
+    <div class="c-show-all-photos">
+      <% if seller_signed_in? %>
+        <%= link_to 'Latest', photos_path, style:"color: white" %></div>
+        <% Category.all.each do |category| %>
+          <div class="<%= "active" if params[:category] == category.name %>">
+            <%= link_to category.name, photos_path(category: category.name), style:"color: white" %>
+          </div>
+        <% end %>
+      <% else  %>
+        <%= link_to 'Latest', photos_path, style:"color: black" %></div>
+        <% Category.all.each do |category| %>
+          <div class="<%= "active" if params[:category] == category.name %>">
+            <%= link_to category.name, photos_path(category: category.name), style:"color: black" %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
 
-<div class="c-photo-grid">
-  <% @photos.each do |photo| %>
-    <div class="c-photo-item">
-      <a href="/photos/<%= photo.id %>">
-        <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %>
-      </a>    
-    </div>      
-  <% end %>
+  <div class="c-photo-grid">
+    <% @photos.each do |photo| %>
+      <div class="c-photo-item">
+        <a href="/photos/<%= photo.id %>">
+          <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %>
+        </a>    
+      </div>      
+    <% end %>
+  </div>
+
 </div>
 
 <div class=footer>

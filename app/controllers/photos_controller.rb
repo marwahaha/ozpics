@@ -1,10 +1,10 @@
 class PhotosController < ApplicationController
   def index
     if params[:category].blank?
-      @photos = Photo.all
+      @photos = Photo.all.order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @photos = Photo.where(:category_id => @category_id)
+      @photos = Photo.where(:category_id => @category_id).order("created_at DESC")
     end
   end
 
