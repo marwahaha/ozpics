@@ -1,24 +1,24 @@
 <div class="c-join-page">
   <div class="c-join">
     <h1>Join as a Seller</h1>
-    <div>
-      <div class="c-signin-btn">
-        <%= link_to 'Log In', new_seller_session_path %>
-      </div>
-      <div class="c-signin-btn">
-        <%= link_to 'Sign Up', new_seller_registration_path%>
-      </div>
-    </div>    
-  </div>
+    <div class="c-signin-btn">
+      <%= render "layouts/shared/seller_login_form" %>
+    </div>
+
+    <div class="c-signin-btn">
+      <%= render "layouts/shared/seller_signup_form" %>
+    </div>
+  </div>    
+</div>
 
   <div class="c-join">
     <h1>Join as a Buyer</h1>
     <div>
       <div class="c-signin-btn">
-        <%= link_to 'Log In', new_buyer_session_path %>
+        <%= render "layouts/shared/buyer_login_form" %>
       </div>
       <div class="c-signin-btn">
-        <%= link_to 'Sign Up', new_buyer_registration_path%>
+        <%= render "layouts/shared/buyer_signup_form" %>
       </div>
     </div>    
   </div>
