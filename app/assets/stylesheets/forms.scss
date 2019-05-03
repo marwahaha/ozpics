@@ -1,0 +1,29 @@
+.form-popout {
+  background-color: lightgrey;
+  width: 500px;
+  padding: 25px;
+}
+
+input {
+  background-color: $primary-color;
+  width: 350px;
+  min-height: 45px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  margin-bottom: 50px;
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: pink;
+}
+
+input[type=text]:hover {
+  background-color: pink;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(5, 218, 168);
+  transition: background-color 500ms ease-in-out;
+}
