@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get "/join", to: "join#index", as: "join"
 
+  resources :line_items
+  resources :carts
   resources :charges
 
 end

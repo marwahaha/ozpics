@@ -1,4 +1,4 @@
-<div class="main"
+<div class="main">
 
   <h1>photos</h1>
   <%= image_tag @photo.uploaded_image, style:'width: 300px' if @photo.uploaded_image.attached? %>
@@ -12,9 +12,12 @@
   <h5>Price</h5>
   <p>$<%= @photo.price %></p>
 
+
   <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
     <% if buyer_signed_in? %>
-      <%= render "layouts/shared/stripe_form" %>
+      <div class="c-add-to-cart-btn">
+        <%= button_to 'Add to Cart', line_items_path(photo_id: @photo.id) %>
+      </div>
     <% else %>
       <div>To purchase
         <%= link_to 'Log In', new_buyer_session_path%> | <%= link_to 'Sign Up', new_buyer_registration_path %> 
