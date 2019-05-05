@@ -1,29 +1,67 @@
 .form-popout {
-  background-color: lightgrey;
-  width: 500px;
+  background-color: $secondary-color;
   padding: 25px;
 }
 
 input {
-  background-color: $primary-color;
-  width: 350px;
-  min-height: 45px;
-  padding: 10px;
-  box-sizing: border-box;
-  border: none;
-  margin-bottom: 50px;
-  outline: none;
+  background-color: yellow;
 }
 
 input[type=text]:focus {
-  background-color: pink;
+  background-color: $primary-color;
 }
 
 input[type=text]:hover {
-  background-color: pink;
+  background-color: $primary-color;
+}
+
+input[type=textarea]:focus {
+  background-color: $primary-color;
+}
+
+input[type=textarea]:hover {
+  background-color: $primary-color;
+}
+
+input[type=submit] {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16pt;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 300px;
+  height: 30px;
+  background-color: white;
+  border: 3px solid $primary-color;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 input[type=submit]:hover {
-  background-color: rgb(5, 218, 168);
-  transition: background-color 500ms ease-in-out;
+  background-color: $primary-color;
+}
+
+.form-control {
+  width: 300px;
+}
+
+.label for {
+  color: green;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16pt;
+  text-transform: uppercase;
+}
+
+.form-container {
+  background-color: $secondary-color;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
 }

@@ -1,4 +1,10 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- edit seller page -->
+
+<div class="main-dark">
+
+<div class="form-popout">
+
+<h2>Edit Account: <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, enctype:"multipart/form-data") do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -23,7 +29,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>"(leave blank if you don't want to change it)"</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -60,4 +66,11 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+</div>
+
+<div class="button-secondary">
+<%= link_to "Back", seller_page_path(current_seller), style: "color: white" %>
+</div>
+
+
+</div>
