@@ -1,4 +1,8 @@
 class ChargesController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
+  after_action :clear_cart, only: [:create]
+  
   def new
   end
   
@@ -22,4 +26,10 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+  private
+    def clear_cart
+      @cart.destroy if @cart.id == session[:cart_id]
+      session[:cart_id] = nil
+    end
 end
