@@ -28,7 +28,8 @@
   <% if seller_signed_in? %>
     <% if @photo.seller_id == current_seller.id %>
       <div class="button">
-        <%= link_to 'Edit', edit_photo_path(@photo) %><%= link_to "delete", delete_photo_path(@photo),
+        <%= link_to 'Edit', edit_photo_path(@photo) %>
+        <%= link_to "delete", delete_photo_path(@photo),
             method: :delete,
             data: {confirm: 'Are you sure?'} %>
       </div>
