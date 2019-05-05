@@ -1,3 +1,9 @@
+<!-- edit page -->
+
+<div class="main-dark">
+
+<div class="form-popout">
+
 <h1>Edit photo</h1>
 
 <form action="<%= photo_path(params[:id]) %>" method="POST" enctype="multipart/form-data" >
@@ -28,5 +34,10 @@
     <input type="submit" value="Update" />
 </form>
 
-<%= link_to 'Show', photo_path(@photo) %>
-<%= link_to "Back", seller_page_path(@photo.seller_id) %>
+</div>
+
+<div class="button-secondary">
+    <%= link_to 'Cancel', photo_path(@photo), style: "color: white" %>
+</div>
+
+</div>

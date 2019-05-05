@@ -17,7 +17,7 @@
 
   <body>
 
-  <nav class="navbar navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: transparent !important;"%>" >
+  <nav class="navbar navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>" >
       <div class="container">
           
         <div class="navbar-header">
@@ -30,12 +30,15 @@
               <li>Hi <%= current_seller.firstname %></li>
               <li class="nav-item dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <span class="caret"><%= link_to 'Dashboard', seller_page_path(current_seller) %></span>                  
+                <div class="button"
+                  <span class="caret"><%= link_to 'Dashboard', seller_page_path(current_seller) %></span>   
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to 'Edit Account',  edit_seller_registration_path %>
                   <%= link_to 'Log out', destroy_seller_session_path, method: :delete %>
                 </div>
+                </div>               
+
               </li>
 
             <% elsif buyer_signed_in? %>

@@ -1,42 +1,60 @@
-<div class="main"
+<!-- show photo page -->
 
-  <h1>photos</h1>
-  <%= image_tag @photo.uploaded_image, style:'width: 300px' if @photo.uploaded_image.attached? %>
-  <h2><%= @photo.title %></h2>
-  <h4>Category</h4>
-  <p><%= @photo.category.name %></p>
-  <h4>Photographer</h4>
-  <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
-  <h5>Description</h5>
-  <p><%= @photo.description %></p>
-  <h5>Price</h5>
-  <p>$<%= @photo.price %></p>
+<div class="main" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>">
 
-  <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
-    <% if buyer_signed_in? %>
-      <%= render "layouts/shared/stripe_form" %>
-    <% else %>
-      <div>To purchase
-        <%= link_to 'Log In', new_buyer_session_path%> | <%= link_to 'Sign Up', new_buyer_registration_path %> 
-      </div>
-    <% end %>
-  <% end %>
+<div class="c-card-show">
 
-  <% if seller_signed_in? %>
-    <% if @photo.seller_id == current_seller.id %>
-      <div class="button">
-        <%= link_to 'Edit', edit_photo_path(@photo) %><%= link_to "delete", delete_photo_path(@photo),
-            method: :delete,
-            data: {confirm: 'Are you sure?'} %>
-      </div>
-      <div>
-        <%= link_to "Go to Dashboard", seller_page_path(@photo.seller_id) %>
-      </div>
-    <% end %>
-  <% end %>
-
-  <div>
-    <%= link_to "Back to Home", root_path %>
+  <div class="c-card-show-left">
+    <%= image_tag @photo.uploaded_image if @photo.uploaded_image.attached? %>
   </div>
+
+  <div class="c-card-show-right">
+    <h1><%= @photo.title %></h1>
+    <h4>Category</h4>
+    <p><%= @photo.category.name %></p>
+    <h4>Photographer</h4>
+    <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+    <h4>Description</h4>
+    <p><%= @photo.description %></p>
+    <h4>Price</h4>
+    <p>$<%= @photo.price %></p>
+
+    <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
+      <% if buyer_signed_in? %>
+        <%= render "layouts/shared/stripe_form" %>
+      <% else %>
+        <h4>To purchase:</h4>
+        <div class="button">
+          <%= link_to 'Join', join_path %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if seller_signed_in? %>
+      <% if @photo.seller_id == current_seller.id %>
+        <div class="button">
+          <%= link_to 'Edit', edit_photo_path(@photo) %>
+        </div>
+        <div class="button">
+          <%= link_to 'delete', delete_photo_path(@photo),
+            method: :delete,
+            data: {confirm:'Are you sure?'} %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
+
+<% if seller_signed_in? %>
+  <div class="button-secondary">
+    <%= link_to 'Back', root_path, style:"color: white" %></div>
+  </div>
+  <% else %>
+  <div class="button-secondary">
+    <%= link_to "Back", root_path, style:"color: black" %></div>
+  </div>
+<% end %>
 
 </div>

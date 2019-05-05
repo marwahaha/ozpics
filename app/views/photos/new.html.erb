@@ -1,4 +1,10 @@
-<h1>Create A New photo</h1>
+<!-- new photo page -->
+
+<div class="main-dark">
+
+<div class="form-container">
+
+<h1>Add photo</h1>
 
 <form action="<%= photos_path %>" method="POST" enctype="multipart/form-data" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
@@ -37,5 +43,13 @@
     <label>Image</label>
     <input type="file" name="uploaded_image" accept="image/png, image/jpeg">
 
-    <input type="submit" value="Create" />
+    <input type="submit" value="Upload" />
 </form>
+
+</div>
+
+<div class="button-secondary">
+  <%= link_to "Cancel", seller_page_path, style: "color: white" %>
+</div>
+
+</div>
