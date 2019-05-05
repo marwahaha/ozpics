@@ -42,7 +42,8 @@
               </li>
 
             <% elsif buyer_signed_in? %>
-              <%= link_to 'Shopping Cart', edit_buyer_registration_path %>
+              <%= link_to 'Cart', cart_path(@cart.id) %>
+              <%= link_to 'Edit Account', edit_buyer_registration_path %>
               <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
             <% else %>
             <div class="button">

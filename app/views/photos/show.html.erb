@@ -21,14 +21,15 @@
 
     <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
       <% if buyer_signed_in? %>
-        <%= render "layouts/shared/stripe_form" %>
+         <div class="c-add-to-cart-btn">
+            <%= button_to 'Add to Cart', line_items_path(photo_id: @photo.id) %>
+          </div>
       <% else %>
         <h4>To purchase:</h4>
         <div class="button">
           <%= link_to 'Join', join_path %>
         </div>
       <% end %>
-    <% end %>
 
     <% if seller_signed_in? %>
       <% if @photo.seller_id == current_seller.id %>
