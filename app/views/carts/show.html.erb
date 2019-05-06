@@ -1,8 +1,14 @@
+<!-- shopping cart -->
+
 <% if notice %>
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h3>Cart</h3>
+<div class="main">
+<div class="c-main-secondary">
+
+<h1>Shopping Cart</h1>
+
 <% @cart.line_items.each do |line_item|%>
   <div class="c-cart-line-item">
     <div>Photo Title: <%= line_item.photo.title %></div>
@@ -18,9 +24,15 @@
   <div>Total: <%= number_to_currency(@cart.total_price) %></div>
 </div>
 
-<%= button_to 'Empty cart', @cart,
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Empty cart', @cart,
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
 
-<%= link_to 'Continue Shopping', root_path %>
+<div class="button-long">
+  <%= link_to 'Continue Shopping', root_path %>
+</div>
+
 <%= render "layouts/shared/stripe_form" %>
+
+</div>
+</div>

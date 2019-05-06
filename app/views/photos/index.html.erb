@@ -33,9 +33,9 @@
 
   <div class="c-photo-grid">
     <% @photos.each do |photo| %>
-      <div class="c-photo-item">
+      <div class="overlay c-photo-item">
         <a href="/photos/<%= photo.id %>">
-          <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %></a>    
+          <%= image_tag(photo.uploaded_image, class:'overlay c-item') if photo.uploaded_image.attached? %></a> 
       </div>      
     <% end %>
   </div>

@@ -1,3 +1,48 @@
-// Place all the styles related to the Join controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+h1.custom {
+  color: $primary-color;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 60pt;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.c-join-photo-hero {
+  background-color: pink;
+  height: 61vh;
+  padding: 50px;
+  background-image: image-url('carles-rabada-1132302-unsplash.jpg');
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.c-join-container {
+  // background-color: lightcoral;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c-join-black {
+  background-color: black;
+  width: 350px;
+  margin: 50px;
+  padding: 25px;
+}
+
+.c-join-white {
+  background-color: white;
+  width: 350px;
+  margin: 50px;
+  padding: 25px;
+}
+
+.c-signin-btn {
+  // background-color: pink;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modal fade {
+  background-color: pink;
+}
