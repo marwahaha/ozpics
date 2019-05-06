@@ -1,6 +1,8 @@
+<!-- Buyer sign up modal -->
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter3">
-  Sign Up
+<button type="button" class="button" data-toggle="modal" data-target="#exampleModalCenter3">
+  Sign up
 </button>
 
 <!-- Modal -->
@@ -8,7 +10,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenter3Title">Buyer Sign Up</h5>
+        <h4 class="modal-title" id="exampleModalCenter3Title">Buyer sign up</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,22 +19,34 @@
         <%= form_for(buyer_resource, as: buyer_resource_name, url: registration_path(buyer_resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: buyer_resource %>
 
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field form-section">
+            <div class="form-left">
+              <%= f.label :email %>
+            </div>
+            <div class="form-right"
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+          <div class="field form-section">
+            <div class="form-left">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+            </div>
+              <div class="form-right">
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <div class="field form-section">
+            <div class="form-left">
+              <%= f.label :password_confirmation %>
+            </div>
+            <div class="form-right">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
           </div>
 
           <div class="actions">
@@ -40,12 +54,8 @@
           </div>
         <% end %>
 
-        <%= render "buyers/shared/links" %>
+      </div>
 
-      </div>
-      <div class="modal-footer">
-        <%= link_to 'Back', :back %>
-      </div>
     </div>
   </div>
 </div>

@@ -1,15 +1,17 @@
+<!-- Buyer login modal -->
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter1">
-  Buyer Sign in
+
+<button type="button" class="button" data-toggle="modal" data-target="#exampleModalCenter1"> Log in
 </button>
 
 <!-- Modal -->
+
 <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter1Title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenter1Title">Buyer Sign In</h5>
+        <h4 class="modal-title" id="exampleModalCenter1Title">Buyer Login</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,20 +20,30 @@
       <div class="modal-body">
 
         <%= form_for(buyer_resource, as: buyer_resource_name, url: session_path(buyer_resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field form-section">
+            <div class="form-left">
+              <%= f.label :email %>
+            </div>
+            <div class="form-right">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+          <div class="field form-section">
+            <div class="form-left">
+              <%= f.label :password %>
+            </div>
+            <div class="form-right"  
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
           </div>
 
           <% if buyer_devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+            <div class="field form-section">
+              <div class="form-left">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
             </div>
           <% end %>
 
@@ -40,13 +52,9 @@
           </div>
         <% end %>
 
-        <%= render "buyers/shared/links" %>
-
       </div>
 
-      <div class="modal-footer">
-        <%= link_to 'Back', :back %>
-      </div>
+
       
     </div>
   </div>

@@ -5,19 +5,32 @@
 <div class="c-card-show">
 
   <div class="c-card-show-left">
-    <%= image_tag @photo.uploaded_image if @photo.uploaded_image.attached? %>
+    <%= image_tag @photo.uploaded_image, style: "width: 50vw;" if @photo.uploaded_image.attached? %>
   </div>
 
+  <% if seller_signed_in?%>
   <div class="c-card-show-right">
-    <h1><%= @photo.title %></h1>
-    <h4>Category</h4>
-    <p><%= @photo.category.name %></p>
-    <h4>Photographer</h4>
-    <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
-    <h4>Description</h4>
-    <p><%= @photo.description %></p>
-    <h4>Price</h4>
-    <p>$<%= @photo.price %></p>
+      <h1 class="white"><%= @photo.title%></h1>
+      <h4>Category</h4>
+      <p class="white"><%= @photo.category.name%></p>
+      <h4>Photographer</h4>
+      <p class="white"><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+      <h4>Description</h4>
+      <p class="white"><%= @photo.description %></p>
+      <h4>Price</h4>
+      <p class="white">$<%= @photo.price %></p>
+    <% else %>
+    <div class="c-card-show-right">
+      <h1><%= @photo.title %></h1>
+      <h4>Category</h4>
+      <p><%= @photo.category.name%></p>
+      <h4>Photographer</h4>
+      <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+      <h4>Description</h4>
+      <p><%= @photo.description %></p>
+      <h4>Price</h4>
+      <p>$<%= @photo.price %></p>
+    <% end %>
 
     <% unless seller_signed_in? && @photo.seller_id == current_seller.id %>
       <% if buyer_signed_in? %>
@@ -25,11 +38,12 @@
             <%= button_to 'Add to Cart', line_items_path(photo_id: @photo.id) %>
           </div>
       <% else %>
-        <h4>To purchase:</h4>
+        <p>To purchase image please login or create an account.</p>
         <div class="button">
           <%= link_to 'Join', join_path %>
         </div>
       <% end %>
+    <% end %>
 
     <% if seller_signed_in? %>
       <% if @photo.seller_id == current_seller.id %>

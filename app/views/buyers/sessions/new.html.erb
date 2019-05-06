@@ -1,24 +1,35 @@
 <!-- buyer log in page -->
 
-<div class=form-popout>
+<div class="main">
 
-<h2>Buyer Log In</h2>
+<div class=form-container>
+
+<h1>Buyer Log in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :email %>
+    </div>
+    <div class="form-right">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :password %>
+    </div>
+    <div class="form-right">  
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
+      <%= f.check_box :remember_me %>
     </div>
   <% end %>
 
@@ -27,8 +38,10 @@
   </div>
 <% end %>
 
-<%= render "buyers/shared/links" %>
+<div class="button-secondary">
+  <%= link_to 'Back', :back %>
+</div>
 
-<%= link_to 'Back', :back %>
+</div>
 
 </div>

@@ -1,29 +1,35 @@
+<!-- join page -->
+
 <div class="main">
 
-<div class="c-join-page">
-  <div class="c-join">
-    <h1>Join as a Seller</h1>
-    <div class="c-signin-btn">
-      <%= render "layouts/shared/seller_login_form" %>
+<div class="c-join-photo-hero">
+
+<h1>What would you like to do today?</h2>
+
+  <div class="c-join-container">
+
+    <div class="c-join-black">
+      <h1 class="custom">SELL</h1>
+        <div class="c-signin-btn">
+          <%= render "layouts/shared/seller_login_form" %>
+          <%= render "layouts/shared/seller_signup_form" %>
+        </div>
+    </div> 
+
+    <div class="c-join-white">
+      <h1 class="custom">BUY</h1>
+          <div class="c-signin-btn">
+            <%= render "layouts/shared/buyer_login_form" %>
+            <%= render "layouts/shared/buyer_signup_form" %>
+          </div>
     </div>
 
-    <div class="c-signin-btn">
-      <%= render "layouts/shared/seller_signup_form" %>
-    </div>
-  </div>    
+  </div> 
+
 </div>
 
-  <div class="c-join">
-    <h1>Join as a Buyer</h1>
-    <div>
-      <div class="c-signin-btn">
-        <%= render "layouts/shared/buyer_login_form" %>
-      </div>
-      <div class="c-signin-btn">
-        <%= render "layouts/shared/buyer_signup_form" %>
-      </div>
-    </div>    
-  </div>
+<div class="button-secondary">
+  <%= link_to 'Cancel', root_path %>
 </div>
 
 </div>
