@@ -6,10 +6,10 @@
       </div>
     <% end %>
   </article>
-  <input type="hidden" name="amount" value="<%=@cart.total_price %>">
+  <input type="hidden" name="amount" value="<%= LineItem.total_price(current_buyer) %>">
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Purchase Photo"
-          data-amount="<%= @cart.total_price*100.to_i %>"
+          data-amount="<%= LineItem.total_price(current_buyer)*100.to_i %>"
           data-locale="auto"></script>
 <% end %>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :buyers
   devise_for :sellers, :controllers => { registrations: 'registrations' }
 
+  get "/orders", to: "orders#create", as: "create_order"
+  
   get "sellers/:id", to: "seller_page#index", as: "seller_page" 
   get "sellers/:id/new", to: "photos#new", as: "seller_new_photo"
 
@@ -20,8 +22,10 @@ Rails.application.routes.draw do
   get "/join", to: "join#index", as: "join"
 
   resources :line_items
-  resources :carts
+
   resources :charges
-  resources :orders
+
+  resources :orders, except: [:create]
+  
 
 end

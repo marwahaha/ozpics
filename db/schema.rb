@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_071431) do
+ActiveRecord::Schema.define(version: 2019_05_06_081239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 2019_05_05_071431) do
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,18 +56,18 @@ ActiveRecord::Schema.define(version: 2019_05_05_071431) do
 
   create_table "line_items", force: :cascade do |t|
     t.bigint "photo_id"
-    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.bigint "buyer_id"
+    t.bigint "order_id"
+    t.index ["buyer_id"], name: "index_line_items_on_buyer_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["photo_id"], name: "index_line_items_on_photo_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cart_id"
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -103,9 +98,9 @@ ActiveRecord::Schema.define(version: 2019_05_05_071431) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "buyers"
+  add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "photos"
-  add_foreign_key "orders", "carts"
   add_foreign_key "photos", "categories"
   add_foreign_key "photos", "sellers"
 end

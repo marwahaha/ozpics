@@ -3,24 +3,28 @@
 <% end %>
 
 <h3>Cart</h3>
-<% @cart.line_items.each do |line_item|%>
+<% @line_items.each do |line_item|%>
   <div class="c-cart-line-item">
+    <div>
+      <a href="/photos/<%= line_item.photo.id %>">
+      <%= image_tag(line_item.photo.uploaded_image, class:'c-item') if line_item.photo.uploaded_image.attached? %></a>    
+    </div>
     <div>Photo Title: <%= line_item.photo.title %></div>
+    
     <div><%= number_to_currency(line_item.photo.price) %></div>
 
-    <%= link_to "delete", line_item_path(line_item),
+    <%= link_to "Remove Item", line_item_path(line_item),
     method: :delete,
     data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
 
 <div class="c-cart-total">
-  <div>Total: <%= number_to_currency(@cart.total_price) %></div>
+  <div>Total: <%= number_to_currency(LineItem.total_price(current_buyer)) %></div>
 </div>
 
-<%= button_to 'Empty cart', @cart,
+<%# button_to 'Empty cart', @cart,
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
-
 <%= link_to 'Continue Shopping', root_path %>
 <%= render "layouts/shared/stripe_form" %>

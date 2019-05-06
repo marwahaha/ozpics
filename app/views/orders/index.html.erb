@@ -1,0 +1,7 @@
+<h1>hello world</h1>
+<% @orders.each do |order|%>
+  
+  <% order.cart.line_items.each do |item| %>
+  <div><%= item.photo.title %></div>
+  <% end %>
+<% end %>

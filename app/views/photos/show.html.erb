@@ -5,7 +5,7 @@
 <div class="c-card-show">
 
   <div class="c-card-show-left">
-    <%= image_tag @photo.uploaded_image if @photo.uploaded_image.attached? %>
+    <%= image_tag @photo.uploaded_image, style: "width:50vw;" if @photo.uploaded_image.attached? %>
   </div>
 
   <div class="c-card-show-right">
@@ -30,6 +30,7 @@
           <%= link_to 'Join', join_path %>
         </div>
       <% end %>
+    <% end %>
 
     <% if seller_signed_in? %>
       <% if @photo.seller_id == current_seller.id %>

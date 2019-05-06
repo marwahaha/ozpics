@@ -1,21 +1,28 @@
 class OrdersController < ApplicationController
-  include CurrentCart
-  before_action :set_cart
+
+  def new
+    redirect_to create_order_path
+  end
+
+  def show
+    @order = LineItem.where(buyer_id: current_buyer.id)
+    render :show
+  end
 
   def create
-    @order = Order.new(order_params)
-    @order.add_line_items_from_cart(@cart)
+    @order = Order.new
+    @order.line_items << LineItem.where(buyer_id: current_buyer.id)
 
     if @order.save
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      
-      redirect_to root_path, notice: 'Thank you for your order.' 
+      @amount = LineItem.total_price(current_buyer)
+      render :create 
     end
   end
 
   private
+
   def order_params
-    params.permit(:cart_id)
+    params.require(:order).permit(:cart_id)
   end
+
 end

@@ -12,22 +12,22 @@
         </div>
         <% Category.all.each do |category| %>
         <div class="<%= "active" if params[:category] == category.name %>">
-          <div class="button-secondary">
+          <div class="button-secondary" >
             <%= link_to category.name, photos_path(category: category.name), style:"color: white" %>
           </div>
         </div>
         <% end %>
-        <% else %>
-          <div class="button-secondary">
-            <%= link_to 'Latest', photos_path %></div>
+      <% else %>
+        <div class="button-secondary">
+          <%= link_to 'Latest', photos_path %></div>
+        </div>
+        <% Category.all.each do |category| %>
+        <div class="<%= "active" if params[:category] == category.name %>" >
+          <div class="button-secondary" >
+            <%= link_to category.name, photos_path(category: category.name) %>
           </div>
-          <% Category.all.each do |category| %>
-          <div class="<%= "active" if params[:category] == category.name %>">
-            <div class="button-secondary">
-              <%= link_to category.name, photos_path(category: category.name) %>
-            </div>
-          </div>
-          <% end %>
+        </div>
+        <% end %>
       <% end %>
   </div>
 

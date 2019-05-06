@@ -1,12 +1,16 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:create, :destroy]
+
+
+  def index
+    @line_items = LineItem.where(buyer_id: current_buyer.id)
+  end
 
   def create
     photo = Photo.find(params[:photo_id])
-    @line_item = @cart.line_items.build(photo: photo)
+    @line_item = LineItem.new(photo: photo, buyer_id: current_buyer.id)
+    
     if @line_item.save
-      redirect_to @line_item.cart, notice: 'Successfully added to cart!'
+      redirect_to line_items_path, notice: 'Successfully added to cart!'
     end
   end
 

@@ -1,0 +1,4 @@
+<% @order.each do |item| %>
+  <p><%= item.photo.title %></p>
+  <%= image_tag item.photo.uploaded_image %>
+<% end %>

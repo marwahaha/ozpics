@@ -1,6 +1,5 @@
 class ChargesController < ApplicationController
-  include CurrentCart
-  before_action :set_cart
+
   # after_action :clear_cart, only: [:create]
   
   def new
@@ -14,22 +13,27 @@ class ChargesController < ApplicationController
       email: params[:stripeEmail],
       source: params[:stripeToken],
     })
-  
-    charge = Stripe::Charge.create({
-      customer: customer.id,
-      amount: @amount,
-      description: 'Rails Stripe customer',
-      currency: 'aud',
-    })
-  
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    begin
+      charge = Stripe::Charge.create({
+        customer: customer.id,
+        amount: @amount,
+        description: 'Rails Stripe customer',
+        currency: 'aud',
+      })
+    rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to new_charge_path
+    else
+      redirect_to new_order_path
+    end 
   end
+    
+end
 
-  # private
+
+
+ # private
   #   def clear_cart
   #     @cart.destroy if @cart.id == session[:cart_id]
   #     session[:cart_id] = nil
   #   end
-end
