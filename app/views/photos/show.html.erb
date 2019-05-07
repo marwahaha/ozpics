@@ -14,7 +14,7 @@
       <h4>Category</h4>
       <p class="white"><%= @photo.category.name%></p>
       <h4>Photographer</h4>
-      <p class="white"><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+      <p class="white"><%= @photo.seller.firstname.capitalize %> <%= @photo.seller.lastname.capitalize %></p>
       <h4>Description</h4>
       <p class="white"><%= @photo.description %></p>
       <h4>Price</h4>
@@ -25,7 +25,7 @@
       <h4>Category</h4>
       <p><%= @photo.category.name%></p>
       <h4>Photographer</h4>
-      <p><%= @photo.seller.firstname %> <%= @photo.seller.lastname %></p>
+      <p><%= @photo.seller.firstname.capitalize %> <%= @photo.seller.lastname.capitalize %></p>
       <h4>Description</h4>
       <p><%= @photo.description %></p>
       <h4>Price</h4>
