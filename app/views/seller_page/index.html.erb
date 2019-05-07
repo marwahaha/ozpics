@@ -2,29 +2,33 @@
 
 <div class="main-dark">
 
-<div class="main-secondary">
+<div class="main-secondary-dashboard">
 
-<div class="c-name"><%= @seller.firstname %> <%= @seller.lastname %></div>
-  <div class="c-avatar">
-      <% if @seller.avatar_image.attached? %>
-          <%= image_tag @seller.avatar_image, style: 'width: 150px; height: 150px; border-radius: 50%' %>
-      <% else %>
-          <img src="http://cdn.onlinewebfonts.com/svg/img_258083.png" alt="default-avatar-image" style="width: 150px; height: 150px; border-radius: 50%;">
-      <% end %>
-  </div>
-  <div class="c-photo-count">
+  <div class="c-dashboard-container">
+    <div class="c-dashboard-avatar">
+    <% if @seller.avatar_image.attached? %>
+        <%= image_tag @seller.avatar_image, style: 'width: 175px; height: 175px; border-radius: 50%' %>
+    <% else %>
+        <img src="http://cdn.onlinewebfonts.com/svg/img_258083.png" alt="default-avatar-image" style="width: 150px; height: 150px; border-radius: 50%;">
+    <% end %>
+    </div>
+
+    <div class="c-dashboard-details">
+    <div class="c-dashboard-name">
+      <%= @seller.firstname %> <%= @seller.lastname %>
+    </div>
+    <div class="c-dashboard-website">
+      <%= @seller.website %>
+    </div>
+    <div class="c-dashboard-photo-count">
       <%= @seller.photos.count %> Photos
-  </div>
-</div>
-
-<div class="c-seller-website">
-    <%= @seller.website %>
-</div>
-
-<div class="c-add-photo">
-  <div class="button">
+    </div>
+    <div class="button">
       <%= link_to 'Add new', seller_new_photo_path %>
+    </div>
+    </div>
   </div>
+
 </div>
 
 <div class="c-photo-grid">
