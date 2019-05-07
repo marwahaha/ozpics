@@ -7,15 +7,15 @@
   <div class="c-cart-line-item">
     <div>
       <a href="/photos/<%= line_item.photo.id %>">
-      <%= image_tag(line_item.photo.uploaded_image, class:'c-item') if line_item.photo.uploaded_image.attached? %></a>    
+      <%= image_tag(line_item.photo.uploaded_image, style: "width: 300px;") if line_item.photo.uploaded_image.attached? %></a>    
     </div>
     <div>Photo Title: <%= line_item.photo.title %></div>
     
     <div><%= number_to_currency(line_item.photo.price) %></div>
 
     <%= link_to "Remove Item", line_item_path(line_item),
-    method: :delete,
-    data: {confirm: 'Are you sure?'} %>
+        method: :delete,
+        data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
 

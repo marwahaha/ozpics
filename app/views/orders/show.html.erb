@@ -1,4 +1,6 @@
 <% @order.each do |item| %>
+  <%= image_tag item.photo.uploaded_image if item.photo.uploaded_image.attached?, style:'width:300px' %>
   <p><%= item.photo.title %></p>
-  <%= image_tag item.photo.uploaded_image %>
+  <p><%= item.photo.description %></p>
+  <p><%= number_to_currency(line_item.photo.price) %></p>
 <% end %>
