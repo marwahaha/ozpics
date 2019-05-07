@@ -1,26 +1,63 @@
-.form-popout {
+.form-container {
   background-color: $secondary-color;
-  padding: 25px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+
+.form-section {
+  background-color: white;
+  margin: 10px 0px;
+  padding: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-left {
+  width: 30%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+}
+
+.form-right {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 10px;
+  height: 50px;
+  width: 70%
+}
+
+label {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
+  text-transform: uppercase;
+}
+
+input[type=file] {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 13pt;
+}
+
+.form-control {
+  border: 0px;
+  background-color: $primary-color;
 }
 
 input {
-  background-color: yellow;
-}
-
-input[type=text]:focus {
-  background-color: $primary-color;
-}
-
-input[type=text]:hover {
-  background-color: $primary-color;
-}
-
-input[type=textarea]:focus {
-  background-color: $primary-color;
-}
-
-input[type=textarea]:hover {
-  background-color: $primary-color;
+  background-color: transparent;
+  border: 0px;
 }
 
 input[type=submit] {
@@ -30,8 +67,8 @@ input[type=submit] {
   font-size: 16pt;
   text-transform: uppercase;
   text-decoration: none;
-  width: 300px;
-  height: 30px;
+  width: 140px;
+  height: 40px;
   background-color: white;
   border: 3px solid $primary-color;
   border-radius: 5px;
@@ -46,22 +83,6 @@ input[type=submit]:hover {
   background-color: $primary-color;
 }
 
-.form-control {
-  width: 300px;
-}
-
-.label for {
-  color: green;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 16pt;
-  text-transform: uppercase;
-}
-
-.form-container {
-  background-color: $secondary-color;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  padding: 50px;
-}
+.modal-content {
+  background-color: $secondary-color-solid;
+} 

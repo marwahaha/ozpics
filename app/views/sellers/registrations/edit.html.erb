@@ -2,59 +2,94 @@
 
 <div class="main-dark">
 
-<div class="form-popout">
+<div class="form-container">
 
-<h2>Edit Account: <%= resource_name.to_s.humanize %></h2>
+<h1 class="white">Edit Account: <%= resource_name.to_s.humanize %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, enctype:"multipart/form-data") do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autocomplete: "firstname" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :firstname %><br />
+    </div>
+    <div class="form-right">
+      <%= f.text_field :firstname, autocomplete: "firstname" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autocomplete: "lastname" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :lastname %><br />
+    </div>
+    <div class="form-right">
+      <%= f.text_field :lastname, autocomplete: "lastname" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :email %><br />
+    </div>
+    <div class="form-right">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>"(leave blank if you don't want to change it)"</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+  <div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :password %>
+    </div>
+    <div class="form-right">
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+  </div>
+    <p class="white">leave blank if you dont want to change it.</p>
+    <% if @minimum_password_length %>
+    <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :password_confirmation %><br />
+    </div>
+    <div class="form-right">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :current_password %> 
+    </div>
+    <div class="form-right">
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+  </div>
+  <p class="white"> We need your current password to confirm your changes.</p>
+
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :website %>
+    </div>
+    <div class="form-right">
+      <%= f.text_field :website, autocomplete: "website" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website, autocomplete: "website" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar_image %><br />
-    <%= f.file_field :avatar_image %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :avatar_image %>
+    </div>
+    <div class="form-right">
+      <%= f.file_field :avatar_image %>
+    </div>
   </div>
 
   <div class="actions">
@@ -62,15 +97,14 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p></p>
+<h4>Cancel account</h4>
+<p class="white">Unhappy with our app? Sorry to see you leave. <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 </div>
 
 <div class="button-secondary">
 <%= link_to "Back", seller_page_path(current_seller), style: "color: white" %>
 </div>
-
 
 </div>
