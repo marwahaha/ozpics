@@ -1,0 +1,16 @@
+<h3>Search Result</h3>  
+
+<div class="c-photo-grid">
+  <% @results.each do |result| %>
+    <div class="c-photo-item">
+    <% f = result.seller.firstname.downcase %>
+    <% l = result.seller.lastname.downcase %>
+      <% if f == @parameter || l == @parameter %>
+        <a href="/photos/<%= result.id %>">
+          <%= image_tag(result.uploaded_image, style:'width:300px; height:250px;') if result.uploaded_image.attached? %>
+        </a>
+      <% end%> 
+      
+    </div>
+  <% end %>
+</div>

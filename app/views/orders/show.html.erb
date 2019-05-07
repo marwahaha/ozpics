@@ -10,7 +10,7 @@
       </div>
       <div class="c-line-item-detail">
         <div><%= line_item.photo.title %></div>
-        <div>By: <%= line_item.photo.seller.firstname %> <%= line_item.photo.seller.lastname %></div>
+        <div>By: <%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></div>
         <div><%= line_item.photo.description %></div>
       </div>
       <div class="c-line-item-price"><%= number_to_currency(line_item.photo.price) %></div>

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get "/join", to: "join#index", as: "join"
 
+  get "/search", to: "pages#search", as: "search_page"
+
   resources :line_items
 
   resources :charges

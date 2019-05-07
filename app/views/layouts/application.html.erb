@@ -19,15 +19,24 @@
 
   <nav class="navbar navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>" >
       <div class="container">
-          
+        <%# logo %> 
         <div class="navbar-header">
           <%= link_to image_tag("OZPICS-LOGO.svg", alt: "logo"), root_path, class: "navbar-brand" %>
         </div>
-
+        <%# search bar %>
+        <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>  
+          <div class="input-group">  
+            <%= search_field_tag :search, params[:search], placeholder: "Search Photographer", class: "form-control" %>  
+            <div class="input-group-btn">  
+              <%= button_tag "S", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+            </div>  
+          </div>  
+        <% end %>
+        <%# nav menu %>
         <div class="nav navbar-nav navbar-right">
 
             <% if seller_signed_in? %>
-              <li>Hi <%= current_seller.firstname %></li>
+              <li>Hi <%= current_seller.firstname.capitalize %></li>
               <li class="nav-item dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <div class="button">
