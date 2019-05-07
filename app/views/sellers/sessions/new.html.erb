@@ -4,17 +4,25 @@
 
 <div class="form-container">
 
-<h2>Seller Log In</h2>
+<h2>Seller Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :email %>
+    </div>
+    <div class="form-right">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="field form-section">
+    <div class="form-left">
+      <%= f.label :password %>
+    </div>
+    <div class="form-right">
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -27,12 +35,25 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+
+  <div class="button">
+    <%- if seller_devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Sign up", new_registration_path(seller_resource_name) %><br />
+    <% end %>
+  </div>
+
+  <div class="button-long">
+    <%- if seller_devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(seller_resource_name) %><br />
+    <% end %>
+  </div>
+
 <% end %>
 
-<%= render "sellers/shared/links" %>
+</div>
 
-<%= link_to 'Back', :back %>
-
+<div class="button-secondary">
+  <%= link_to 'Back', :back %>
 </div>
 
 </div>

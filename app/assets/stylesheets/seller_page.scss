@@ -1,3 +1,43 @@
-// Place all the styles related to the seller_page controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-secondary-dashboard {
+  background-color: $secondary-color;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.c-dashboard-container {
+  // background-color: lightgreen;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+
+.c-dashboard-avatar {
+  // background-color: pink;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.c-dashboard-details {
+  padding-left: 40px;
+}
+
+.c-dashboard-name {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 30pt;
+}
+
+.c-dashboard-website {
+  color: $primary-color;
+  font-size: 17pt;
+}
+
+.c-dashboard-photo-count {
+  color: white;
+  font-size: 13pt;
+  margin-bottom: 15px;
+}

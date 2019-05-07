@@ -11,6 +11,8 @@
 @import 'buttons.scss';
 @import 'forms.scss';
 @import 'join.scss';
+@import 'seller_page.scss';
+@import 'carts.scss';
 
 /* Any style that is common to all pages */
 * {
@@ -28,6 +30,13 @@ h1 {
 
 h1.white {
   color: white;
+}
+
+h2 {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;  
+  font-weight: 700;
+  font-size: 30pt;
 }
 
 h4 {

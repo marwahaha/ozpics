@@ -79,6 +79,13 @@
         <div class="actions">
           <%= f.submit "Sign up" %>
         </div>
+
+        <div class="button"> 
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(seller_resource_name) %><br />
+          <% end %>
+        </div>
+
       <% end %>
 
       </div>
