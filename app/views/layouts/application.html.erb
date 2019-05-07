@@ -30,25 +30,39 @@
               <li>Hi <%= current_seller.firstname %></li>
               <li class="nav-item dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <div class="button"
+                <div class="button">
                   <span class="caret"><%= link_to 'Dashboard', seller_page_path(current_seller) %></span>   
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to 'Edit Account',  edit_seller_registration_path %>
                   <%= link_to 'Log out', destroy_seller_session_path, method: :delete %>
                 </div>
-                </div>               
-
+                </div>         
               </li>
 
             <% elsif buyer_signed_in? %>
-              <%# <%= link_to 'Cart', cart_path(@cart.id) %> 
-              <%= link_to 'Edit Account', edit_buyer_registration_path %>
-              <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
+
+              <%= link_to 'Cart', line_items_path(buyer_id: current_buyer.id) %>
+
+                <li class="nav-item dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <div class="button">
+                      <span class="caret"><%= link_to 'Dashboard', orders_path %></span> 
+                    </div>
+                  </a>
+                  
+                <div class="dropdown-menu">
+                  <%= link_to 'Edit Account', edit_buyer_registration_path %>
+                  <%= link_to 'Log out', destroy_buyer_session_path, method: :delete %>
+                </div>
+              </div>
+
             <% else %>
-            <div class="button">
-              <%= link_to 'Join', join_path %>
-            </div>
+
+              <div class="button">
+                <%= link_to 'Join', join_path %>
+              </div>
+
             <% end %>
         </div>
       </div>

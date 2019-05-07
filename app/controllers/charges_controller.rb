@@ -24,7 +24,20 @@ class ChargesController < ApplicationController
         flash[:error] = e.message
         redirect_to new_charge_path
     else
-      redirect_to new_order_path
+      @order = Order.new
+      @order.line_items << LineItem.where(buyer_id: current_buyer.id, complete: false)
+      @order.amount = @amount
+      @order.buyer_id = current_buyer.id
+      if @order.save
+        LineItem.refresh
+        @order.line_items.each do |item|
+          item.complete = true
+          item.save
+        end
+        render :create
+      else
+        redirect_to line_items_path
+      end
     end 
   end
     

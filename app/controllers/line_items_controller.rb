@@ -2,7 +2,8 @@ class LineItemsController < ApplicationController
 
 
   def index
-    @line_items = LineItem.where(buyer_id: current_buyer.id)
+    @line_items = LineItem.where(buyer_id: current_buyer.id, complete: false)
+    @total_amount = LineItem.total_price(current_buyer)
   end
 
   def create
@@ -18,7 +19,6 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to line_items_path, notice: 'Successfully deleted from cart!'
-
   end
 
   private

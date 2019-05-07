@@ -1,7 +1,23 @@
-<h1>hello world</h1>
-<% @orders.each do |order|%>
-  
-  <% order.cart.line_items.each do |item| %>
-  <div><%= item.photo.title %></div>
-  <% end %>
-<% end %>
+<h1>My Ozpics</h1>
+<h2>Order History</h2>
+<div class="c-order-history">
+
+
+
+  <% @orders.each do |order| %>
+    <div class="c-line-one">
+      <div>Order#<%= order.id %></div>
+      <div>Order Date <%= order.created_at.strftime("%-d/%m/%Y") %></div>
+    </div>
+    <div class="c-line-two">  
+      <% order.line_items.each do |item| %>
+        <div class="c-line-item-image">
+          <a href="/photos/<%= item.photo.id %>">
+          <%= image_tag(item.photo.uploaded_image, style: "width: 300px;") if item.photo.uploaded_image.attached? %></a>    
+        </div>
+      <% end %>
+      <p>Order Total <%= number_to_currency(order.amount/100) %></p>
+      <%= link_to 'View', order_path(order.id) %>
+    </div>
+  <% end %>  
+</div>

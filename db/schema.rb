@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_081239) do
+ActiveRecord::Schema.define(version: 2019_05_07_051932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_081239) do
     t.datetime "updated_at", null: false
     t.bigint "buyer_id"
     t.bigint "order_id"
+    t.boolean "complete", default: false
     t.index ["buyer_id"], name: "index_line_items_on_buyer_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["photo_id"], name: "index_line_items_on_photo_id"
@@ -68,6 +69,9 @@ ActiveRecord::Schema.define(version: 2019_05_06_081239) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "amount"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -101,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_081239) do
   add_foreign_key "line_items", "buyers"
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "photos"
+  add_foreign_key "orders", "buyers"
   add_foreign_key "photos", "categories"
   add_foreign_key "photos", "sellers"
 end

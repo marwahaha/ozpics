@@ -4,27 +4,33 @@
 
 <h3>Cart</h3>
 <% @line_items.each do |line_item|%>
-  <div class="c-cart-line-item">
-    <div>
+  <div class="c-line-items">
+    <div class="c-line-item-image">
       <a href="/photos/<%= line_item.photo.id %>">
       <%= image_tag(line_item.photo.uploaded_image, style: "width: 300px;") if line_item.photo.uploaded_image.attached? %></a>    
     </div>
-    <div>Photo Title: <%= line_item.photo.title %></div>
-    
-    <div><%= number_to_currency(line_item.photo.price) %></div>
-
-    <%= link_to "Remove Item", line_item_path(line_item),
-        method: :delete,
-        data: {confirm: 'Are you sure?'} %>
+    <div class="c-line-item-delete">
+      <%= link_to "Remove", line_item_path(line_item),
+          method: :delete,
+          data: {confirm: 'Are you sure?'} %>
+    </div>
+    <div class="c-line-item-detail">
+      <div><%= line_item.photo.title %></div>
+      <div>By: <%= line_item.photo.seller.firstname %> <%= line_item.photo.seller.lastname %></div>
+      <div><%= line_item.photo.description %></div>
+    </div>
+    <div class="c-line-item-price"><%= number_to_currency(line_item.photo.price) %></div>
   </div>
 <% end %>
 
-<div class="c-cart-total">
-  <div>Total: <%= number_to_currency(LineItem.total_price(current_buyer)) %></div>
-</div>
-
 <%# button_to 'Empty cart', @cart,
     method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Continue Shopping', root_path %>
-<%= render "layouts/shared/stripe_form" %>
+    data: { confirm: 'Are you sure?' } %> 
+<%= link_to 'Continue Shopping', root_path %>   
+
+<div class="c-line-items-total">
+  <div class="c-line-items-count"><%= @line_items.count %> items</div>
+  <div>TOTAL: <%= number_to_currency(@total_amount) %></div>
+</div>
+
+<%= render "layouts/shared/stripe_form", total_amount: @total_amount %>
