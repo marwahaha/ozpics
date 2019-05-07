@@ -2,47 +2,95 @@ h1.custom {
   color: $primary-color;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
-  font-size: 60pt;
+  font-size: 80pt;
+  line-height: 80pt;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1.custom-black {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 80pt;
   text-transform: uppercase;
   text-align: center;
 }
 
 .c-join-photo-hero {
-  background-color: pink;
-  height: 61vh;
+  height: 83vh;
   padding: 50px;
   background-image: image-url('carles-rabada-1132302-unsplash.jpg');
   object-fit: cover;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .c-join-container {
   // background-color: lightcoral;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-content: center;
 }
 
-.c-join-black {
+.c-circle-black {
   background-color: black;
-  width: 350px;
-  margin: 50px;
+  width: 375px;
+  height: 375px;
+  border-radius: 100%;
+  margin: 25px;
   padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 
-.c-join-white {
+.c-circle-white {
   background-color: white;
-  width: 350px;
-  margin: 50px;
+  width: 375px;
+  height: 375px;
+  border-radius: 100%;
+  margin: 25px;
   padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 .c-signin-btn {
   // background-color: pink;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.modal fade {
-  background-color: pink;
+.c-join-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-content {
+  background-color: $secondary-color-solid;
+  border-radius: 0px;
+  border: 0px;
+  padding: 25px;
+}
+
+.modal-title {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;  
+  font-weight: 700;
+  font-size: 30pt;
+}
+
+.modal-backdrop {
+  background-color: black;
+  opacity:0.7 !important;
 }
