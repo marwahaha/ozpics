@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :charges
 
   resources :orders, except: [:create]
+
+
   
 
 end

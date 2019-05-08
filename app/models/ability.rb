@@ -3,7 +3,17 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(seller)
+  def initialize(user)
+    user ||= User.new
+    case user
+    when Buyer
+      can :read, :all
+    when Seller
+      can [:create, :read], Photo
+      can [:update, :delete], Photo, owner: user.id 
+    end
+  end
+end
     # Define abilities for the passed in user here. For example:
     #
       # seller ||= Seller.new # guest user (not logged in)
@@ -31,5 +41,3 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
-end
