@@ -1,3 +1,9 @@
+<!-- view order -->
+
+<div class="main">
+
+<div class="main-secondary">
+
 <h2>YOUR ORDER DETAILS</h2>
 <h4>Order#<%= @order.id %></h4>
 <h4>Order Date <%= @order.created_at.strftime("%-d/%m/%Y") %></h4>
@@ -23,4 +29,8 @@
   </div>
 </div>
 
+</div>
+
 <%= link_to 'Back to Order History', orders_path %>
+
+</div>

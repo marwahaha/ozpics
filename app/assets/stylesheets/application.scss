@@ -68,6 +68,8 @@ p.white {
 .main-secondary {
   background-color: $secondary-color;
   padding: 50px;
+  margin-bottom: 25px;
+  height: auto;
 }
 
 .c-photo-grid {
@@ -110,4 +112,55 @@ p.white {
 .c-card-show-right {
   padding: 50px;
   width: 50vw;
+}
+
+// ––––– cart items –––––
+
+.c-line-items {
+  margin-top: 25px;
+  padding: 25px;
+  border: 3px solid $primary-color;
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+}
+
+.c-line-item-left {
+  background-color: wheat;
+  flex-direction: column;
+  width: 30%;
+}
+
+.c-line-item-middle {
+  background-color: pink;
+  width: 60%;
+  display: flex;
+  // text-align: center;
+}
+
+.c-line-item-right {
+  background-color: lightgrey;
+  width: 10%;
+}
+
+/* Media queries –––––––––––––––––––––––––––––––––––– */
+
+@media only screen and (max-width: 800px) {
+
+  .main {
+    background-color: white;
+    padding: 0px 25px 25px 25px;
+    min-height: 100vh;
+  }
+
+  .c-line-items {
+    margin-top: 25px;
+    padding: 10px;
+    border: 3px solid $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
 }

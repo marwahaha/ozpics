@@ -1,25 +1,40 @@
-<h3>Search Result</h3>  
+<!-- search results page -->
+
+<div class="main">
+
+<div class="main-secondary">
+
+<h1>Search Result</h1>  
+
+</div>
 
   <div class="c-photo-grid">
-  <% photos = [] %>
-    <% @results.each do |result| %>      
-      <% f = result.seller.firstname.downcase %>
-      <% l = result.seller.lastname.downcase %>
 
-      <% if f == @parameter || l == @parameter %>
-        <% photos << result %>
+    <div class="c-photo-item"
+
+    <% photos = [] %>
+      <% @results.each do |result| %>      
+        <% f = result.seller.firstname.downcase %>
+        <% l = result.seller.lastname.downcase %>
+
+        <% if f == @parameter || l == @parameter %>
+          <% photos << result %>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <% if photos.length == 0 %>
-      <div>Cannot find Photographer <%= @parameter.capitalize %></div>
-    <% else %>
-      <% photos.each do |photo|%>
-        <div class="c-photo-item">
-          <a href="/photos/<%= photo.id %>">
-            <%= image_tag(photo.uploaded_image, style:'width:100%;') if photo.uploaded_image.attached? %>
-          </a>
-        </div> 
-      <% end %>      
-    <% end %>
+      <% if photos.length == 0 %>
+        <div>Cannot find Photographer <%= @parameter.capitalize %></div>
+      <% else %>
+        <% photos.each do |photo|%>
+          <div class="c-photo-item">
+            <a href="/photos/<%= photo.id %>">
+              <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %>
+            </a>
+          </div> 
+        <% end %>      
+      <% end %>
+    </div>
+
+    </div>
+
   </div>
