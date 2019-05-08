@@ -1,6 +1,12 @@
-<h1>My Ozpics</h1>
-<h2>Order History</h2>
+<!-- buyer dashboard -->
+
+<div class="main">
+
+<div class="main-secondary">
+
+<h1>My Order History</h1>
 <div class="c-order-history">
+
   <% @orders.each do |order| %>
     <div class="c-line-one">
       <div>Order#<%= order.id %></div>
@@ -17,4 +23,8 @@
       <%= link_to 'View', order_path(order.id) %>
     </div>
   <% end %>  
+</div>
+
+</div>
+
 </div>

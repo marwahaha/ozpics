@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <title>OZPICS</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <title>OZPICS</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>">
-      
-      <%= link_to image_tag("OZPICS-LOGO.svg", alt: "logo"), root_path, class: "navbar-brand" %>
-      
-      <form class="form-inline" action="/search" accept-charset="UTF-8" method="get">
-        <input class="form-control mr-sm-2" type="search" name="search" id="search" placeholder="Search Photographer" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-      </form>
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- path for seller -->
-        <% if seller_signed_in? %>
-          <li>Hi <%= current_seller.firstname.capitalize %></li>
-          <ul class="navbar-nav mr-auto button">
-            <li class="nav-item dropdown button">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Account
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"><%= link_to 'Dashboard', seller_page_path(current_seller.id) %></a>
-                <a class="dropdown-item" href="#"><%= link_to 'Edit Account',  edit_seller_registration_path %></a>
-                <a class="dropdown-item" href="#"><%= link_to 'Log out', destroy_seller_session_path, method: :delete %></a>
-              </div>
-            </li>
-          </ul>
-        <!-- path for buyer -->
-        <% elsif buyer_signed_in? %>
-          <%= link_to ('<i class="fas fa-shopping-cart"></i>').html_safe, line_items_path(buyer_id: current_buyer.id) %>
-          <ul class="navbar-nav mr-auto button">
-          <li class="nav-item dropdown button">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My Account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#"><%= link_to 'Dashboard', orders_path %></a>
-              <a class="dropdown-item" href="#"><%= link_to 'Edit Account',  edit_buyer_registration_path %></a>
-              <a class="dropdown-item" href="#"><%= link_to 'Log out', destroy_buyer_session_path, method: :delete %></a>
-            </div>
-          </li>
-        </ul>
-        <!-- path for join -->
-        <% else %>
-        <div class="button">
-          <%= link_to 'Join', join_path %>
-        </div>
-      <% end %>
-    </div>
-  </nav>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style= "<%= seller_signed_in? ? "background-color: black !important;" : "background-color: white !important;"%>">
+
+  <%= link_to image_tag("OZPICS-LOGO.svg", alt: "logo"), root_path, class: "navbar-brand" %>
+
+  <form class="form-inline" action="/search" accept-charset="UTF-8" method="get">
+    <input class="form-control mr-sm-2" type="search" name="search" id="search" placeholder="Search Photographer" aria-label="Search">
+    <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+  </form>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <!-- path for seller -->
+    <% if seller_signed_in? %>
+    <div class="nav-right">
+      <div class="hi-message">Hi <%= current_seller.firstname.capitalize %>
+      </div>
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item dropdown">
+          <a class="nav-link button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="secondary-button" href="#"><%= link_to 'Dashboard', seller_page_path(current_seller.id) %></a>
+            <a class="secondary-button" href="#"><%= link_to 'Edit Account',  edit_seller_registration_path %></a>
+            <a class="secondary-button" href="#"><%= link_to 'Log out', destroy_seller_session_path, method: :delete %></a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    <!-- path for buyer -->
+    <% elsif buyer_signed_in? %>
+    <div class="nav-right">
+      <div class="hi-message">
+        <%= link_to ('<i class="fas fa-shopping-cart"></i>').html_safe, line_items_path(buyer_id: current_buyer.id) %>
+      </div>
+      <div class="navbar-nav mr-auto button">
+        <div class="nav-item dropdown button">
+          <a class="nav-link button" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="secondary-button" href="#"><%= link_to 'Dashboard', orders_path %></a>
+            <a class="secondary-button" href="#"><%= link_to 'Edit Account',  edit_buyer_registration_path %></a>
+            <a class="secondary-button" href="#"><%= link_to 'Log out', destroy_buyer_session_path, method: :delete %></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- path for join -->
+    <% else %>
+    <div class="button">
+      <%= link_to 'Join', join_path %>
+    </div>
+  <% end %>
+
+  </div>
+</nav>
+      
     <%= yield %>
 
   </body>

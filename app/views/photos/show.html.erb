@@ -38,7 +38,11 @@
             <%= button_to 'Add to Cart', line_items_path(photo_id: @photo.id) %>
           </div>
       <% else %>
-        <p>To purchase image please login or create an account.</p>
+        <% if seller_signed_in? %>
+          <p class="white">To purchase image please login or create an account.</p>
+        <% else %>
+          <p>To purchase image please login or create an account.</p>
+        <% end %>
         <div class="button">
           <%= link_to 'Join', join_path %>
         </div>

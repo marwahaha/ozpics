@@ -1,23 +1,73 @@
 .navbar {
   margin-bottom:0px;
-  padding: 20px 0px;
+  padding: 0px 80px;
   position: sticky; top: 0;
   height: 10vh;
-  min-height: 140px;
+  min-height: 120px;
 }
 
-.container {
-  width: vw;
-  margin: 0px 70px;
-  max-width: 2000px;
+.form-inline {
+  margin: 0px;
+  align-items: flex-start;
 }
 
-li {
-  color: $primary-color;
+input[type=search] {
+  background-color:$secondary-color-solid;
+  margin-left: 50px;
 }
 
-.button-container {
+button[type=submit] {
+  background-color: $primary-color;
+  margin: 0px;
+}
+
+// ––––– nav right elements –––––
+
+.collapse {
   // background-color: pink;
+}
+
+.nav-right {
+  // background-color: grey;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hi-message {
+  // background-color: wheat;
+  padding: 10px;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+.navbar-nav {
+  // background-color: green;
+  justify-content: flex-end;
+}
+
+.dropdown-menu {
+  // background-color: lightseagreen;
+  padding: 10px;
+  width: 100px;
+}
+
+.nav-link {
+  color: black !important;
+  background-color: $primary-color;
+}
+
+.nav-link:active {
+  background-color: $primary-color !important;
+}
+
+@media only screen and (max-width: 800px) {
+
+
+  
 }
