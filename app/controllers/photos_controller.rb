@@ -19,8 +19,12 @@ class PhotosController < ApplicationController
   end
 
   def new
+    if current_seller
       @photo = Photo.new
       @categories = Category.all
+    else
+      page_not_find     
+    end
   end
 
   def show
@@ -28,8 +32,12 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
-    @categories = Category.all
+    if current_seller
+      @photo = Photo.find(params[:id])
+      @categories = Category.all
+    else
+      page_not_find    
+    end
   end
 
   def update

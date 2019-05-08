@@ -36,18 +36,10 @@
 
 <% end %>
 
-<div class="button-long">
-  <%# button_to 'Empty cart', @cart,
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %> 
-  <%= link_to 'Continue Shopping', root_path %> 
-</div> 
-
-</div>
-
-<div class="main-secondary">
-
- 
+<%= link_to "Empty Cart", delete_all_path(@line_items),
+    method: :delete,
+    data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Continue Shopping', root_path %>   
 
 <div class="c-line-items-total">
   <div class="c-line-items-count"><%= @line_items.count %> items</div>
