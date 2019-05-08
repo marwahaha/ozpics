@@ -1,8 +1,13 @@
-class ChargesController < ApplicationController
+class ChargesController < ApplicationController  
+  before_action :page_not_find, only: [:index, :new, :show]
 
-  # after_action :clear_cart, only: [:create]
+  def index
+  end
   
-  def new
+  def new 
+  end
+
+  def show    
   end
   
   def create
@@ -40,13 +45,5 @@ class ChargesController < ApplicationController
       end
     end 
   end
-    
+
 end
-
-
-
- # private
-  #   def clear_cart
-  #     @cart.destroy if @cart.id == session[:cart_id]
-  #     session[:cart_id] = nil
-  #   end

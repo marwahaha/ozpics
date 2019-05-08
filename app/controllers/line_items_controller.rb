@@ -1,9 +1,19 @@
 class LineItemsController < ApplicationController
+  before_action :page_not_find, only: [:new, :show]
+  
+  def new
+  end
 
+  def show
+  end
 
   def index
-    @line_items = LineItem.where(buyer_id: current_buyer.id, complete: false)
-    @total_amount = LineItem.total_price(current_buyer)
+    if current_buyer
+      @line_items = LineItem.where(buyer_id: current_buyer.id, complete: false)
+      @total_amount = LineItem.total_price(current_buyer)
+    else 
+      page_not_find
+    end
   end
 
   def create
@@ -18,7 +28,17 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
+
     redirect_to line_items_path, notice: 'Successfully deleted from cart!'
+  end
+
+  def destroy_all
+    @line_items = LineItem.where(buyer_id: current_buyer.id, complete: false)
+    @line_items.each do |line_item|
+      line_item.destroy
+    end
+
+    redirect_to line_items_path, notice: 'Cart is empty!'
   end
 
   private

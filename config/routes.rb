@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get "/search", to: "pages#search", as: "search_page"
 
   resources :line_items
+  delete "/line_items", to: "line_items#destroy_all", as: "delete_all"
 
   resources :charges
 

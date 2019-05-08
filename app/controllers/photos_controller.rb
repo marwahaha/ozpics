@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  # load_and_authorize_resource
   def index
     if params[:category].blank?
       @photos = Photo.all.order("created_at DESC")
@@ -10,7 +9,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-    if current_seller
       @photo = Photo.new(photo_params)
       @photo.seller_id = current_seller.id
       if @photo.save
@@ -18,7 +16,6 @@ class PhotosController < ApplicationController
         else
           render 'new'
         end
-      end
   end
 
   def new
@@ -26,8 +23,7 @@ class PhotosController < ApplicationController
       @photo = Photo.new
       @categories = Category.all
     else
-      render :file => 'public/404.html', :status => :not_found, :layout => false
-      
+      page_not_find     
     end
   end
 
@@ -40,7 +36,7 @@ class PhotosController < ApplicationController
       @photo = Photo.find(params[:id])
       @categories = Category.all
     else
-      render :file => 'public/404.html', :status => :not_found, :layout => false    
+      page_not_find    
     end
   end
 
