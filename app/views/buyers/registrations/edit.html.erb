@@ -4,13 +4,13 @@
 
 <div class="form-container">
 
-<h1>Edit Account: <%= resource_name.to_s.humanize %></h1>
+<h2>Edit Account: <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-section">
-    <div class="form-left">
+    <div class="form-left"> 
       <%= f.label :email %>
     </div>
     <div class"form-right">
@@ -28,13 +28,10 @@
     </div>
     <div class="form-right">
     <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
     </div>
   </div>
 
-  <p>Leave blank if you don't want to change it.</p>
+  <em>Leave blank if you dont want to change it</em>
 
   <div class="field form-section">
     <div class="form-left"> 
@@ -45,6 +42,10 @@
     </div>
   </div>
 
+  <% if @minimum_password_length %>
+  <em><%= @minimum_password_length %> characters minimum</em>
+  <% end %>
+
   <div class="field form-section">
     <div class="form-left">
       <%= f.label :current_password %>
@@ -54,14 +55,18 @@
     </div>
   </div>
 
-  <p>We need your current password to confirm your changes.</p>
+  <em>We need your current password to confirm your changes</em>
 
+  <div class="spacer"></div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-<p></p>
+</div>
+
+<div class="form-container">
+
 <h4>Cancel my account</h4>
 <p>Unhappy with our app? Sorry to see you leave. <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 

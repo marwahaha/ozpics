@@ -4,12 +4,18 @@
 
 <div class="main-secondary">
 
-<h2>Thank you!, you paid <strong>$<%= @amount/100 %></strong>!</h2>
+<h2>Thank you for your purchase!</h2> 
+<p></p>
+<h3>You paid $<%= @amount/100 %></h3>
 
-<%= link_to 'View Order', order_path(@order) %>
+  <div class="button">
+    <%= link_to 'View Order', order_path(@order) %>
+  </div>
 
 </div>
 
-<%= link_to 'Back to Home', root_path %>
+<div class="button-secondary">
+  <%= link_to 'Home', root_path %>
+</div>
 
 </div>

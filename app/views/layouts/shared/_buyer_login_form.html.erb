@@ -43,9 +43,13 @@
                 <%= f.label :remember_me %>
           <% end %>
 
+          <div class="spacer"></div>
+
           <div class="actions">
             <%= f.submit "Log in" %>
           </div>
+
+          <div class="spacer"></div>
 
           <div class="button">
             <%- if buyer_devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -53,9 +57,13 @@
             <% end %>
           </div>
 
-          <div button="button-long">
+          <div class="spacer"></div>
+
+          <p>Forgot your password?</p>
+
+          <div class="button">
             <%- if buyer_devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(buyer_resource_name) %><br />
+              <%= link_to "Reset", new_password_path(buyer_resource_name) %><br />
             <% end %>
           </div>
 

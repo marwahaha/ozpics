@@ -13,8 +13,9 @@
     <div class="c-line-item-left">
       <div class="c-line-item-image">
         <a href="/photos/<%= line_item.photo.id %>">
-        <%= image_tag(line_item.photo.uploaded_image, style: "width: 250px; margin-bottom: 25px;") if line_item.photo.uploaded_image.attached? %></a>    
+        <%= image_tag(line_item.photo.uploaded_image, style: "width: 250px") if line_item.photo.uploaded_image.attached? %></a>    
       </div>
+      <div class="spacer"></div>
       <div class="button">
         <%= link_to "Remove", line_item_path(line_item),
             method: :delete,
@@ -51,7 +52,7 @@
 
   <div class="c-line-items-total-right">
     <div class="c-line-items-count"><%= @line_items.count %> items</div>
-    <h4 class="black">TOTAL <%= number_to_currency(@total_amount) %></h4>
+    <h4 class="black">Total <%= number_to_currency(@total_amount) %></h4>
   </div>
 
 </div>

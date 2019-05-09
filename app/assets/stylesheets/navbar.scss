@@ -16,7 +16,7 @@
 }
 
 .form-inline {
-  background-color: yellow;
+  // background-color: yellow;
   margin: 0px !important;
 }
 
@@ -49,6 +49,7 @@ button[type=submit] {
   // background-color: grey;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .navbar-collapse {
@@ -94,4 +95,5 @@ button[type=submit] {
     height: 10vh;
     min-height: 200px;
   }
+
 }
