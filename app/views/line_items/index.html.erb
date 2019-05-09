@@ -13,7 +13,7 @@
     <div class="c-line-item-left">
       <div class="c-line-item-image">
         <a href="/photos/<%= line_item.photo.id %>">
-        <%= image_tag(line_item.photo.uploaded_image, style: "width: 300px;") if line_item.photo.uploaded_image.attached? %></a>    
+        <%= image_tag(line_item.photo.uploaded_image, style: "width: 250px; margin-bottom: 25px;") if line_item.photo.uploaded_image.attached? %></a>    
       </div>
       <div class="button">
         <%= link_to "Remove", line_item_path(line_item),
@@ -23,30 +23,42 @@
     </div>
 
     <div class="c-line-item-middle">
-      <div>Title: <%= line_item.photo.title %></div>
-      <div>Photographer: <%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></div>
-      <div>Description: <%= line_item.photo.description %></div>
+      <h3><%= line_item.photo.title %></h3>
+      <h4>Photographer</h4><p><%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></p>
+      <h4>Description</h4> <p><%= line_item.photo.description %></p>
     </div>
 
     <div class="c-line-item-right">
-      <div><%= number_to_currency(line_item.photo.price) %></div>
+      <h4 class="black"><%= number_to_currency(line_item.photo.price) %></h4>
     </div>
 
-    </div>
+  </div>
 
 <% end %>
 
-<%= link_to "Empty Cart", delete_all_path(@line_items),
-    method: :delete,
-    data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Continue Shopping', root_path %>   
-
 <div class="c-line-items-total">
-  <div class="c-line-items-count"><%= @line_items.count %> items</div>
-  <div>TOTAL: <%= number_to_currency(@total_amount) %></div>
+
+  <div class="c-line-items-total-left">
+    <div class="button">
+      <%= link_to "Empty Cart", delete_all_path(@line_items),
+          method: :delete,
+          data: {confirm: 'Are you sure?'} %>
+    </div>
+      <div class="button-secondary-long">
+      <%= link_to 'Continue Shopping', root_path %>
+      </div> 
+  </div>
+
+  <div class="c-line-items-total-right">
+    <div class="c-line-items-count"><%= @line_items.count %> items</div>
+    <h4 class="black">TOTAL <%= number_to_currency(@total_amount) %></h4>
+  </div>
+
 </div>
 
-<%= render "layouts/shared/stripe_form", total_amount: @total_amount %>
+<div class="c-items-payment">
+  <div><%= render "layouts/shared/stripe_form", total_amount: @total_amount %></div>
+</div>
 
 </div>
 

@@ -6,19 +6,37 @@
   min-height: 120px;
 }
 
+.nav-left {
+  background-color: lightgreen;
+  display: flex;
+}
+
+.navbar-logo {
+  margin-right: 50px;
+}
+
 .form-inline {
-  margin: 0px;
-  align-items: flex-start;
+  background-color: yellow;
+  margin: 0px !important;
 }
 
 input[type=search] {
   background-color:$secondary-color-solid;
-  margin-left: 50px;
+  margin: 0px !important;
+  border-radius: 0px !important;
+  width: 200px !important;
 }
 
 button[type=submit] {
+  background-color: $secondary-color-solid;
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+
+.navbar-toggler {
   background-color: $primary-color;
-  margin: 0px;
+  border-radius: 0px !important;
+  border: 0px !important;
 }
 
 // ––––– nav right elements –––––
@@ -39,7 +57,6 @@ button[type=submit] {
 }
 
 .hi-message {
-  // background-color: wheat;
   padding: 10px;
   align-content: center;
   justify-content: center;
@@ -62,12 +79,19 @@ button[type=submit] {
   background-color: $primary-color;
 }
 
-.nav-link:active {
+.nav-link button:active {
   background-color: $primary-color !important;
 }
 
-@media only screen and (max-width: 800px) {
+// ––––– media queries ––––––
 
+@media only screen and (max-width: 500px) {
 
-  
+  .navbar {
+    margin-bottom:0px;
+    padding: 0px 25px;
+    position: sticky; top: 0;
+    height: 10vh;
+    min-height: 200px;
+  }
 }
