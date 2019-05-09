@@ -4,41 +4,47 @@
 
 <div class="main-secondary">
 
-<h1>My order history</h1>
-<h4>Order#<%= @order.id %></h4>
+<h1>Order #<%= @order.id %></h1>
 
-<h4>Order Date <%= @order.created_at.strftime("%-d/%m/%Y") %></h4>
+<p>Order Date <%= @order.created_at.strftime("%-d/%m/%Y") %></p>
+<% @order.line_items.each do |line_item| %>
 
-  <% @order.line_items.each do |line_item| %>
+<div class="c-line-items">
 
-    <div class="c-line-items">
-
-    <div class="c-line-item-left">
-      <div class="c-line-item-image">
-        <a href="/photos/<%= line_item.photo.id %>">
-        <%= image_tag(line_item.photo.uploaded_image, style: "width: 300px;") if line_item.photo.uploaded_image.attached? %></a>    
-      </div>
-
-      <div class="c-line-item-middle">
-        <h3><%= line_item.photo.title %></h3>
-        <h4>Photographer</h4> <p><%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></p>
-        <h4>Description</h4> <p><%= line_item.photo.description %></p>
-        </div>
-
-      </div class="c-line-item-right">
-      <h4 class="black"><%= number_to_currency(line_item.photo.price) %></h4>
+  <div class="c-line-item-left">
+    <div class="c-line-item-image">
+      <a href="/photos/<%= line_item.photo.id %>">
+      <%= image_tag(line_item.photo.uploaded_image, style: "width: 250px") if line_item.photo.uploaded_image.attached? %></a>    
     </div>
+  </div>
 
-  <% end %>
+  <div class="c-line-item-middle">
+    <h3><%= line_item.photo.title %></h3>
+    <h4>Photographer</h4><p><%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></p>
+    <h4>Description</h4> <p><%= line_item.photo.description %></p>
+  </div>
 
-  <div class="c-line-items-total">
-    <div class="c-line-items-count"><%= @order.line_items.count %> items</div>
-    <div>ORDER TOTAL: <%= number_to_currency(@order.amount/100) %></div>
+  <div class="c-line-item-right">
+    <h4 class="black"><%= number_to_currency(line_item.photo.price) %></h4>
+  </div>
+
+</div>
+
+<% end %>
+
+<div class="c-line-items-total">
+<div></div>
+  <div class="c-line-items-total-right">
+  <div class="c-line-items-count"><%= @order.line_items.count %> items</div>
+  <h4 class="black">Total <%= number_to_currency(@order.amount/100) %></h4>
   </div>
 </div>
 
-</div>
+<div class="spacer"></div>
+<div class="spacer"></div>
 
-<%= link_to 'Back to Order History', orders_path %>
+<div class="button"><%= link_to 'see all', orders_path %></div>
+
+</div>
 
 </div>
