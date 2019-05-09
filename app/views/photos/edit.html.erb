@@ -4,7 +4,7 @@
 
 <div class="form-container">
 
-<h1 class="white">Edit photo</h1>
+<h2 class="white">Edit photo</h2>
 
 <form action="<%= photo_path(params[:id]) %>" method="POST" enctype="multipart/form-data" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
@@ -60,6 +60,8 @@
         </div>
     </div>
 
+    <div class="spacer"></div>
+    
     <input type="submit" value="Update" />
 </form>
 
