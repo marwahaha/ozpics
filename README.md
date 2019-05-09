@@ -159,7 +159,7 @@ many to many relations
 
 #### 17. Describe the way tasks are allocated and tracked in your project.
 
-
+Tasks are divided into two parts for this project, front end of design and styling, backend of functions and features. 
 
 #### 18. Discuss how Agile methodology is being implemented in your project.
 
