@@ -6,7 +6,6 @@
 /* Import other css components */
 @import 'variables.scss';
 @import 'footer.scss';
-@import 'photos.scss';
 @import 'navbar.scss';
 @import 'buttons.scss';
 @import 'forms.scss';
@@ -38,8 +37,20 @@ h2 {
   font-size: 30pt;
 }
 
+h3 {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;  
+  font-weight: 700;
+  font-size: 23pt;
+}
+
 h4 {
   color: $primary-color;
+  font-size: 17pt;
+}
+
+h4.black {
+  color: black;
   font-size: 17pt;
 }
 
@@ -52,6 +63,8 @@ p {
 p.white {
   color: white;
 }
+
+// –––––––––––––––––––
 
 .main {
   background-color: white;
@@ -72,8 +85,24 @@ p.white {
   height: auto;
 }
 
+// –––––––––––––––––––
+
+.c-photo-hero {
+  height: 57vh;
+  padding: 50px;
+  background-image: image-url('laura-smetsers-788757-unsplash.jpg');
+  object-fit: cover;
+}
+
+.c-category {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// –––––––––––––––––––
+
 .c-photo-grid {
-  // background-color: lightblue;
   height: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -98,6 +127,8 @@ p.white {
   opacity: 0.3;
 }
 
+// –––––––––––––––––––
+
 .c-card-show {
   background-color: $secondary-color;
   opacity: 30;
@@ -119,33 +150,70 @@ p.white {
 .c-line-items {
   margin-top: 25px;
   padding: 25px;
-  border: 3px solid $primary-color;
+  background-color: white;
   display: flex;
-  align-items: space-around;
-  justify-content: center;
+  // align-items: space-around;
+  // justify-content: center;
 }
 
 .c-line-item-left {
-  background-color: wheat;
+  // background-color: wheat;
   flex-direction: column;
-  width: 30%;
+  display: flex;
+  width: 20%;
 }
 
 .c-line-item-middle {
-  background-color: pink;
-  width: 60%;
+  // background-color: pink;
+  width: 70%;
   display: flex;
-  // text-align: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .c-line-item-right {
-  background-color: lightgrey;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
   width: 10%;
 }
 
-/* Media queries –––––––––––––––––––––––––––––––––––– */
+.c-line-items-total {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  padding: 25px;
+}
 
-@media only screen and (max-width: 800px) {
+.c-line-items-total-left {
+  // background-color: lightseagreen;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-line-items-total-right {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.c-items-payment {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.stripe-button-el {
+  display: none !important;
+}
+
+/*–––––– Media queries ––––– */
+
+@media only screen and (max-width: 500px) {
 
   .main {
     background-color: white;
@@ -162,5 +230,15 @@ p.white {
     justify-content: center;
     flex-direction: column;
   }
+}
 
+  @media only screen and (max-width: 800px) {
+
+  .c-category {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
