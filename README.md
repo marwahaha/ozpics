@@ -81,7 +81,9 @@ see short answer questions #16
     - prepare presentation
 ### Screenshots of Trello board
 
-(TBC)
+<img src="./docs/Trello_1.jpg">
+<img src="./docs/Trello_2.jpg">
+<img src="./docs/Trello_3.jpg">
 
 # Short Answer Questions
 #### 1. What is the need (i.e. challenge) that you will be addressing in your project?
@@ -90,7 +92,7 @@ The challenge is to provide a secure and functional platform that people can use
 
 #### 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 
-
+anna
 
 #### 3. Describe the project will you be conducting and how your App will address the needs.
 
@@ -98,11 +100,11 @@ The challenge is to provide a secure and functional platform that people can use
 
 #### 4. Describe the network infrastructure the App may be based on.
 
-
+https://en.wikipedia.org/wiki/Heroku
 
 #### 5. Identify and describe the software to be used in your App.
 
-
+We use Stripe to handle online payment which allow buyers and sellers to make and receive payments over the Internet
 
 #### 6. Identify the database to be used in your App and provide a justification for your choice.
 
@@ -114,7 +116,7 @@ The challenge is to provide a secure and functional platform that people can use
 
 #### 8. Describe the architecture of your App.
 
-
+anna
 
 #### 9. Explain the different high-level components (abstractions) in your App.
 
