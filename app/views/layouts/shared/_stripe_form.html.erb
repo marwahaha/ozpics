@@ -11,5 +11,8 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Purchase Photo"
           data-amount="<%= total_amount*100.to_i %>"
-          data-locale="auto"></script>
+          data-locale="auto">
+ </script>
+  <button class="button" type="submit" style="color: black;" class="checkout">Checkout</button> 
+
 <% end %>
