@@ -106,19 +106,19 @@ anna
 
 #### 4. Describe the network infrastructure the App may be based on.
 
-https://en.wikipedia.org/wiki/Heroku
+The App is deployed on Heroku. Heroku is a platform that run applications by using dyno grid. The grid is made up of several servers. Heroku gives every application a unique domain that can routes to the specific dyno. The App is pushed to Heroku by using a git server.
 
 #### 5. Identify and describe the software to be used in your App.
 
-We use Stripe to handle online payment which allow buyers and sellers to make and receive payments over the Internet
+The App is created using Ruby and Ruby on Rails framework. We use Stripe to handle online payment which allow buyers and sellers to make and receive payments over the Internet. We use Amazon's S3 service to handle image uploading. devise gem was used to perform user signup, login, session information and password encrypted and reset. 
 
 #### 6. Identify the database to be used in your App and provide a justification for your choice.
 
-
+We use PostgreSQL database for our app to deploy. PostgreSQL extends the SQL language combined with many features that safely store and scale the most complicated data workloads. It is reliable and highly extensible. In terms of deploying, Heroku provide a Postgres database service with a web dashboard, the ability to share queries with dataclips, and several other helpful features. 
 
 #### 7. Identify and describe the production database setup (i.e. postgres instance).
 
-
+The production database on Heroku is a Postgres database that different from the local development one. To setup this database, we need to run migration on Heroku by ` heroku run rails db:migrate ` . Then to seed the database by running ` heroku run rails db:seed ` . Database can be reset as well by running ` heroku pg:reset DATABASE_URL ` . The database run locally and run on Heroku will have the same structure but differnt data stored.
 
 #### 8. Describe the architecture of your App.
 
@@ -126,7 +126,7 @@ anna
 
 #### 9. Explain the different high-level components (abstractions) in your App.
 
-
+Active Record is the model of Model View Controller(MVC) structure. It is used to manipulate data stored in a relational database. Action Pack provides the view and controller layers in the MVC paradigm. It handles requests and responses. Active Support is a collection of utility classes and standard library of extensions that are useful in Rails. Action Mailer provides the email service layer. Active Storage is used to handle image uploading.
 
 #### 10. Detail any third party services that your App will use.
 
@@ -151,7 +151,12 @@ many to many relations
 
 #### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
-
+  - seller model: generate by devise gem. It is used to store seller information. a seller has many photos.
+  - photo model: photo is the product to trade of this platform app. it is published by an individual seller to the market and connected with the seller via the foreign key seller_id. It has many line_items which are the items that added to a shopping cart for purchasing. a photo also belongs to a category via the foreign key category_id
+  - category model: all the photos are assigned to a category when uploaded. each category has many photos. 
+  - buyer model: generate by devise gem. It is used to store buyer information. It has many orders by assigning a buyer_id to each generated order. 
+  - order model: order is generated after a completed purchase. It has many items (called line_items in this app). It belongs to a buyer through the foreign key of buyer_id.
+  - line_items model: a line_item is a photo that added to a shopping cart. It belongs to a photo and an order. it is saved to an order after the purchase finalised.
 
 #### 14. Provide your database schema design.
 
@@ -183,11 +188,11 @@ We are using Github to track and manage any code changes of the project. Everyti
 
 #### 21. Discuss and analyse requirements related to information system security.
 
-
+The requirements related to information system secruity is to safely store user information and has a way for user to retrive information once correct recovery procedure implimented. Authentication is required by user providing correct password. The password has to be encrypted to store in the database. Additionaly, different users need to be authorised with diiferent access to data to ensure data cannot be muted by unauthorised activity.  
 
 #### 22. Discuss methods you will use to protect information and data.
 
-
+Instead of writing our own code to protect data, we use Ruby on Rails gems and third party servce to handle data security. for authentication, we use the divise gem which has built in feature to encryted user password when they signed in. devise also has the ability to handle incorrect input for user information and reset passowrd for user in the case the password has been forgotten by the user. We use thrid party service Stripe to store buyer credit card information instead of saving it to our own database. Heroku as a deploy platform also performs well in terms of data security. 
 
 #### 23. Research what your legal obligations are in relation to handling user data.
 
