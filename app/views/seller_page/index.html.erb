@@ -32,7 +32,7 @@
 </div>
 
 <div class="c-photo-grid">
-  <% @seller.photos.each do |photo| %>
+  <% @seller.photos.order("created_at DESC").each do |photo| %>
     <div class="c-photo-item">
       <a href="/photos/<%= photo.id %>">
         <%= image_tag(photo.uploaded_image, class:'c-item') if photo.uploaded_image.attached? %>
