@@ -23,7 +23,9 @@
       <% end %>
 
       <% if photos.length == 0 %>
-        <div>Cannot find Photographer <%= @parameter.capitalize %></div>
+        <div>
+          <h3 class="padding">Sorry, we can't find a search matching: <%= @parameter.capitalize %></h3>
+        </div>
       <% else %>
         <% photos.each do |photo|%>
           <div class="c-photo-item">
@@ -35,6 +37,6 @@
       <% end %>
     </div>
 
-    </div>
-
   </div>
+
+</div>
