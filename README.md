@@ -1,9 +1,15 @@
 # README
-# link (URL) to the App
+## link (URL) to the App:
 https://sleepy-mountain-74358.herokuapp.com/
 
-# GitHub repository link
+## GitHub repository link:
 https://github.com/annarosz/ozpics
+
+## Figma links:
+https://www.figma.com/file/cqd1AFYjrk5zudz3Nhrh1Y6K/ozpics_lowfidelity?node-id=0%3A1
+
+https://www.figma.com/file/SqZz83wFX67CPthGwYnzIq/ozpics_highfidelity?node-id=0%3A1
+
 
 # Project Description
 

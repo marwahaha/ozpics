@@ -53,6 +53,14 @@ h3 {
   font-size: 23pt;
 }
 
+h3.padding {
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif;  
+  font-weight: 700;
+  font-size: 23pt;
+  padding: 50px;
+}
+
 h4 {
   color: $primary-color;
   font-size: 17pt;
@@ -239,6 +247,13 @@ em.black {
 .stripe-button-el {
   display: none !important;
 }
+
+// ––––– search –––––
+
+.no-search-result {
+  background-color: yellow;
+}
+
 
 // –––––– Media queries –––––
 
