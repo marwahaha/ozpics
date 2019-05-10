@@ -18,8 +18,12 @@
 
     <% order.line_items.each do |item| %>
       <div class="c-line-item-image">
-        <a href="/photos/<%= item.photo.id %>">
-        <%= image_tag(item.photo.uploaded_image, style: "width: 300px; margin-right: 25px;") if item.photo.uploaded_image.attached? %></a>    
+        <% unless item.photo.nil?  %>
+          <a href="/photos/<%= item.photo.id %>">
+          <%= image_tag(item.photo.uploaded_image, style: "width: 300px; margin-right: 25px;") if item.photo.uploaded_image.attached? %></a>
+        <% else  %>
+          <img src="https://via.placeholder.com/300x200?text=Photo+Has+Been+Deleted" alt="">
+        <% end %>
       </div>
     <% end %>
 

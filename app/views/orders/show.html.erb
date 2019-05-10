@@ -13,20 +13,30 @@
 
   <div class="c-line-item-left">
     <div class="c-line-item-image">
-      <a href="/photos/<%= line_item.photo.id %>">
-      <%= image_tag(line_item.photo.uploaded_image, style: "width: 250px") if line_item.photo.uploaded_image.attached? %></a>    
+      <% unless line_item.photo.nil?  %>
+        <a href="/photos/<%= line_item.photo.id %>">
+        <%= image_tag(line_item.photo.uploaded_image, style: "width: 300px; margin-right: 25px;") if line_item.photo.uploaded_image.attached? %></a>
+      <% else  %>
+        <img src="https://via.placeholder.com/300x200?text=Photo+Has+Been+Deleted" alt="">
+      <% end %>
     </div>
   </div>
 
-  <div class="c-line-item-middle">
-    <h3><%= line_item.photo.title %></h3>
-    <h4>Photographer</h4><p><%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></p>
-    <h4>Description</h4> <p><%= line_item.photo.description %></p>
-  </div>
+  <% if line_item.photo %>
+    <div class="c-line-item-middle">      
+      <h3><%= line_item.photo.title%></h3>
+      <h4>Photographer</h4><p><%= line_item.photo.seller.firstname.capitalize %> <%= line_item.photo.seller.lastname.capitalize %></p>
+      <h4>Description</h4> <p><%= line_item.photo.description %></p>
+    </div>
 
-  <div class="c-line-item-right">
-    <h4 class="black"><%= number_to_currency(line_item.photo.price) %></h4>
-  </div>
+    <div class="c-line-item-right">
+      <h4 class="black"><%= number_to_currency(line_item.photo.price) %></h4>
+    </div>
+  <% else %>
+      <div class="c-line-item-middle">      
+      <h3>This item is no longer availabe</h3>
+    </div>
+  <% end %>
 
 </div>
 
