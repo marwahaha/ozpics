@@ -1,6 +1,6 @@
 # OZPICS
 
-## Link (URL) to the App:
+## Live app link:
 https://sleepy-mountain-74358.herokuapp.com/
 
 ## GitHub repository link:
@@ -10,6 +10,8 @@ https://github.com/annarosz/ozpics
 https://www.figma.com/file/cqd1AFYjrk5zudz3Nhrh1Y6K/ozpics_lowfidelity?node-id=0%3A1
 
 https://www.figma.com/file/SqZz83wFX67CPthGwYnzIq/ozpics_highfidelity?node-id=0%3A1
+
+![website animation](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS.gif)
 
 ___
 
@@ -28,20 +30,17 @@ ___
     - Join button in navigation.
 
   - Join portal page:
-    - Directs all users (buyers and sellers) to one page where they can choose how they want join / use the site.
+    - Directs all users (buyers and sellers) to one page where they can choose how they want to join / use the site.
 
   - Buyer function:
-    - Create account / Log in / Edit account
+    - Create account / Log in / Edit account.
     - View dashboard which includes their entire order history.
     - Add a photo to cart, checkout and view order.
 
   - Seller function:
-    - Create account / Log in / Edit account
+    - Create account / Log in / Edit account.
     - View dashboard to create seller profile.
     - Ability to add new, edit and delete their own photos.
-
-<img src="./docs/OZPICS_home.jpg">
-<img src="./docs/OZPICS_join.jpg">
 
 ## Tech stack
 
@@ -79,32 +78,32 @@ ___
 
 The design process started with researching other stock photography sites to better understand their functionality. As a team, we discussed the idea in terms of visual design and functionality and planned things out with some rough sketches:
 
-<img src="./docs/ideas_sketch.jpg">
+![ideas sketch](https://raw.githubusercontent.com/annarosz/temp/master/ideas_sketch.jpg)
 
 Our next step was to work out the database entity relationship diagram:
 
-<img src="./docs/Ozpic-schema.JPG">
+![database schema](https://raw.githubusercontent.com/annarosz/temp/master/Ozpic-schema.JPG)
 
-Once that was determined, the next step was to work out the low-fidelity wireframes in Figma. This gave us an opprtunity to see the pages and functionality clearly and make changes together on screen as we discussed the project moving forward. We noticed that many stock photography sites have similar features to best showcase their funcionality, we decided to use a similar format:
+Once that was determined, the next step was to work out the low-fidelity wireframes in Figma. This gave us an opportunity to see the pages and functionality clearly and make changes together on screen as we discussed the project moving forward. We noticed that many stock photography sites have similar features to best showcase their funcionality, we decided to use a similar format:
 
-<img src="./docs/wireframes_low_fidelity.JPG">
+![low fidelity wireframes](https://raw.githubusercontent.com/annarosz/temp/master/wireframes_low_user_journey.jpg)
 
 Next step was to work on the high-fidelity wireframes and resolve the 'brand style guide' that suited our market and user stories. 
 
 Our users are both buyers and sellers within an Australian market. Stock photography site buyers are mostly professionals working in communications and visual design who don't have budget for a photo shoot. The sellers are either professional or amateur photographers. Both users and sellers would most likely engage with stock photography sites via desktop application as opposed to mobile for ease of use and the abilty to see and sort the photos clearly. Because our site is for only Australian content, we wanted to create an Australian 'feel' in the name and colour palette. 
 
-<img src="./docs/design_style_guide.JPG">
+![style guide](https://raw.githubusercontent.com/annarosz/temp/master/design_style_guide.jpg)
 
-<img src="./docs/wireframes_high_user_journey.JPG">
+![high fidelity wireframes](https://raw.githubusercontent.com/annarosz/temp/master/wireframes_high_user_journey.jpg)
 
 We decided to create a bold feature in our site that changed the colour theme of the entire site based on whether the user was logged in as a buyer or seller. This creates visual interest but it also aides in navigation as it explicitly demostrates to the user where they are in the site - white for buyer and black for seller.
 
-<img src="./docs/OZPICS_buyer_home.JPG">
-<img src="./docs/OZPICS_seller_home.JPG">
+![home page buyer](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS_buyer_home.jpg)
+![home page seller](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS_seller_home.jpg)
 
 ## A workflow diagram of the user journeys
 
-<img src="./docs/site-architecture-new.JPG">
+![Site architecture](https://raw.githubusercontent.com/annarosz/temp/master/site-architecture-new.jpg)
 ___
 
 # Planning Process
@@ -124,9 +123,9 @@ ___
     - Prepare documentation for submission.
     - Prepare presentation.
 
-<img src="./docs/Trello_1.jpg">
-<img src="./docs/Trello_2.jpg">
-<img src="./docs/Trello_3.jpg">
+![Trello 1](https://raw.githubusercontent.com/annarosz/temp/master/Trello_1.jpg)
+![Trello 2](https://raw.githubusercontent.com/annarosz/temp/master/Trello_2.jpg)
+![Trello 3](https://raw.githubusercontent.com/annarosz/temp/master/Trello_3.jpg)
 ___
 
 # Short Answer Questions
@@ -185,7 +184,7 @@ The production database on Heroku is a Postgres database that different from the
   - Under "My Account" go to dashboard to view entire order history.
   - To edit account or log out, go to links under "My Account".
 
-<img src="./docs/site-architecture-new.JPG">
+![Site architecture](https://raw.githubusercontent.com/annarosz/temp/master/site-architecture-new.jpg)
 
 ## 9. Explain the different high-level components (abstractions) in your App.
 
@@ -229,7 +228,7 @@ Many to many relations:
 
 ## 14. Provide your database schema design.
 
-<img src="./docs/Ozpic-schema.JPG">
+![database schema](https://raw.githubusercontent.com/annarosz/temp/master/Ozpic-schema.JPG)
 
 ## 15. Provide User stories for your App.
 
@@ -237,14 +236,15 @@ Our users are both buyers and sellers within an Australian market. Stock photogr
 
 ## 16. Provide Wireframes for your App.
 
-<img src="./docs/wireframes_low_user_journey.JPG">
-<img src="./docs/wireframes_high_user_journey.JPG">
+![low fidelity wireframes](https://raw.githubusercontent.com/annarosz/temp/master/wireframes_low_user_journey.jpg)
+
+![high fidelity wireframes](https://raw.githubusercontent.com/annarosz/temp/master/wireframes_high_user_journey.jpg)
 
 ## 17. Describe the way tasks are allocated and tracked in your project.
 
 Initially we did pair programming to understand our individual needs and strengths. We did all the planning together and then decided to work individually to make the most of the two-week deadline. Roles were split into front-end (visual design and styling) and back-end (functions and features). Communication was done regulary in person and over slack. 
 
-<img src="./docs/slack_new.jpg">
+![slack communication](https://raw.githubusercontent.com/annarosz/temp/master/slack_new.jpg)
 
 ## 18. Discuss how Agile methodology is being implemented in your project.
 
