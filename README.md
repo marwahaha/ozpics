@@ -10,8 +10,7 @@ https://www.figma.com/file/SqZz83wFX67CPthGwYnzIq/ozpics_highfidelity?node-id=0%
 
 ![website animation](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS_new.gif)
 
-Back-end: Jing Li
-Front-end: Anna Roszko
+Back-end: Jing Li, Front-end: Anna Roszko
 ___
 
 # Project Description
