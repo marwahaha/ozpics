@@ -8,7 +8,7 @@ https://www.figma.com/file/cqd1AFYjrk5zudz3Nhrh1Y6K/ozpics_lowfidelity?node-id=0
 
 https://www.figma.com/file/SqZz83wFX67CPthGwYnzIq/ozpics_highfidelity?node-id=0%3A1
 
-![website animation](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS.gif)
+![website animation](https://raw.githubusercontent.com/annarosz/temp/master/OZPICS_new.gif)
 ___
 
 # Project Description
