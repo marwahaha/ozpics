@@ -88,7 +88,7 @@ Once that was determined, the next step was to work out the low-fidelity wirefra
 
 Next step was to work on the high-fidelity wireframes and resolve the 'brand style guide' that suited our market and user stories. 
 
-Our users are both buyers and sellers within an Australian market. Stock photography site buyers are mostly professionals working in communications and visual design who don't have budget for a photo shoot. The sellers are either professional or amateur photographers. Both users and sellers would most likely engage with stock photography sites via desktop application as opposed to mobile for ease of use and the abilty to see and sort the photos clearly. Because our site is for only Australian content, we wanted to create an Australian 'feel' in the name and colour palette. 
+Our users are both buyers and sellers within an Australian market. Stock photography site buyers are mostly professionals working in communications and visual design who don't have budget for a photo shoot. The sellers are either professional or amateur photographers. Both users and sellers would most likely engage with stock photography sites via desktop application as opposed to mobile for ease of use and the ability to see and sort the photos clearly. Because our site is for only Australian content, we wanted to create an Australian 'feel' in the name and colour palette. 
 
 ![style guide](https://raw.githubusercontent.com/annarosz/temp/master/design_style_guide.jpg)
 
